@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Productora Amarte — Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..700;1,300..700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background":"#e5e1e6","on-tertiary-container":"#42454f","on-tertiary-fixed-variant":"#434750","on-secondary-container":"#b4b5b7","on-error-container":"#ffdad6","surface-tint":"#fabc4c","surface-dim":"#131316","tertiary":"#cccfdb","background":"#131316","inverse-primary":"#7e5700","on-secondary-fixed":"#1a1c1d","primary-container":"#e5a93b","surface-container-low":"#1b1b1e","on-tertiary-fixed":"#181b24","on-primary-fixed-variant":"#604100","surface-variant":"#353438","on-secondary-fixed-variant":"#454749","tertiary-container":"#b1b3bf","on-primary-fixed":"#281900","on-primary":"#432c00","tertiary-fixed":"#e0e2ee","on-tertiary":"#2d303a","surface":"#131316","error-container":"#93000a","secondary-fixed-dim":"#c6c6c8","on-secondary":"#2f3132","on-primary-container":"#5e4000","primary-fixed-dim":"#fabc4c","on-surface":"#e5e1e6","outline-variant":"#504535","secondary-fixed":"#e2e2e4","primary":"#ffc664","on-surface-variant":"#d4c4af","surface-bright":"#39393c","secondary":"#c6c6c8","tertiary-fixed-dim":"#c4c6d2","surface-container-highest":"#353438","surface-container":"#1f1f22","surface-container-high":"#2a2a2d","primary-fixed":"#ffdeac","surface-container-lowest":"#0e0e11","outline":"#9d8f7c","secondary-container":"#454749","inverse-on-surface":"#303033","on-error":"#690005","inverse-surface":"#e5e1e6","error":"#ffb4ab"
+          },
+          borderRadius: { DEFAULT:"0.125rem", lg:"0.25rem", xl:"0.5rem", full:"0.75rem" },
+          spacing: { "space-sm":"0.75rem","space-lg":"1.5rem","margin-mobile":"1.25rem","space-4xl":"6rem","space-2xl":"3rem","space-xl":"2rem",gutter:"1.5rem","space-2xs":"0.25rem","space-xs":"0.5rem","space-md":"1rem","margin-desktop":"4rem","space-3xl":"4.5rem","space-section":"8rem" },
+          fontFamily: { "body-lg":["Plus Jakarta Sans"],"label-meta":["Space Mono"],"display-hero-mobile":["Playfair Display"],"label-btn":["Plus Jakarta Sans"],"label-timecode":["Space Mono"],"headline-lg":["Playfair Display"],"headline-md":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"headline-md-mobile":["Playfair Display"],"headline-sm":["Plus Jakarta Sans"],"display-hero":["Playfair Display"],"body-md":["Plus Jakarta Sans"] },
+          fontSize: { "body-lg":["18px",{lineHeight:"28px",letterSpacing:"0.01em",fontWeight:"300"}],"label-meta":["12px",{lineHeight:"16px",letterSpacing:"0.12em",fontWeight:"400"}],"display-hero-mobile":["44px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-btn":["13px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"label-timecode":["14px",{lineHeight:"18px",letterSpacing:"0.08em",fontWeight:"700"}],"headline-lg":["56px",{lineHeight:"64px",letterSpacing:"-0.02em",fontWeight:"500"}],"headline-md":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.015em",fontWeight:"400"}],"headline-lg-mobile":["32px",{lineHeight:"38px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-md-mobile":["26px",{lineHeight:"32px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-hero":["84px",{lineHeight:"92px",letterSpacing:"-0.03em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0.01em",fontWeight:"400"}] }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-body-md text-body-md text-on-surface antialiased">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/75 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
+  <div class="h-20 w-full px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+    <div class="flex items-center gap-space-sm">
+      <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings:'FILL' 1;">movie</span>
+      <span class="font-label-meta text-label-meta text-on-surface uppercase tracking-widest hidden sm:inline-block">Productora Amarte</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-space-xl">
+      <a class="font-label-btn text-label-btn uppercase tracking-wider text-primary font-bold" href="index.html">Inicio</a>
+      <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="mision-y-vision.html">Misión y Visión</a>
+      <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="servicios.html">Servicios</a>
+      <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="contacto.html">Contáctanos</a>
+    </nav>
+    <div class="flex items-center gap-space-md">
+      <a class="inline-flex items-center justify-center px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-label-btn text-label-btn uppercase tracking-wider transition-all duration-300 hover:bg-primary-container hover:text-on-primary-container shadow-[0_0_20px_rgba(229,169,59,0.25)]" href="contacto.html">
+        <span class="material-symbols-outlined text-[18px] mr-space-2xs">play_arrow</span>Iniciar Proyecto
+      </a>
+      <!-- Mobile menu button -->
+      <button class="md:hidden w-8 h-8 flex items-center justify-center" id="mobile-menu-btn">
+        <span class="material-symbols-outlined text-on-surface text-[24px]">menu</span>
+      </button>
+      <div class="hidden md:flex w-8 h-8 rounded-full bg-primary items-center justify-center">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile nav -->
+  <div class="hidden md:hidden flex-col bg-surface-container px-margin-mobile py-space-md gap-space-md" id="mobile-nav">
+    <a class="font-label-btn text-label-btn uppercase tracking-wider text-primary font-bold" href="index.html">Inicio</a>
+    <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant" href="mision-y-vision.html">Misión y Visión</a>
+    <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant" href="servicios.html">Servicios</a>
+    <a class="font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant" href="contacto.html">Contáctanos</a>
+  </div>
+</header>
+
+<main class="w-full pt-20 bg-background min-h-screen">
+<div class="flex flex-col w-full">
+
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden pb-space-2xl md:pb-space-4xl">
+  <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="w-full px-margin-mobile md:px-margin-desktop pt-space-lg md:pt-space-2xl">
+    <!-- Metadata Strip -->
+    <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg text-on-surface-variant">
+      <div class="flex items-center gap-space-xs font-label-meta text-label-meta uppercase tracking-widest text-primary">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+        <span>ESTUDIO CINEMATOGRÁFICO INDEPENDIENTE</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-space-lg font-label-timecode text-label-timecode text-on-surface-variant/80">
+        <span>LAT 19°25'N / LON 99°07'W</span>
+        <span class="text-surface-variant">|</span>
+        <span>35MM • LARGE FORMAT RAW</span>
+      </div>
+    </div>
+
+    <!-- Título Hero -->
+    <div class="max-w-6xl space-y-space-md">
+      <h1 class="font-display-hero text-headline-lg-mobile md:text-display-hero text-on-surface leading-tight tracking-tight uppercase">
+        Creamos cine que desafía la <span class="italic font-normal text-primary">gravedad</span> de las ideas.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl pt-space-xs">
+        Diseñamos narrativas de escala monumental y precisión óptica milimétrica. Desde piezas de ficción galardonadas hasta campañas globales para marcas audaces, elevamos cada fotograma a la categoría de manifiesto artístico.
+      </p>
+    </div>
+
+    <!-- SHOWREEL PANORÁMICO 2.39:1 -->
+    <div class="mt-space-2xl relative group cursor-pointer overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl">
+      <div class="w-full aspect-[2.39/1] relative flex items-center justify-center overflow-hidden">
+        <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Showreel cinematográfico Productora Amarte" src="https://picsum.photos/id/174/1920/803"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent opacity-90"></div>
+
+        <!-- Camera overlay badges -->
+        <div class="absolute inset-0 pointer-events-none flex flex-col justify-between p-space-sm md:p-space-lg">
+          <div class="flex items-center justify-between">
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-primary rounded-DEFAULT">TC 01:14:22:08</span>
+            <div class="flex items-center gap-space-2xs">
+              <span class="font-label-meta text-label-meta bg-surface-container-lowest/80 backdrop-blur-md text-on-surface px-space-xs py-space-2xs rounded-DEFAULT">ARRI 4K HDR</span>
+              <span class="font-label-meta text-label-meta bg-surface-container-lowest/80 backdrop-blur-md text-on-surface px-space-xs py-space-2xs rounded-DEFAULT">2.39:1 SCOPE</span>
+              <span class="font-label-meta text-label-meta bg-surface-container-lowest/80 backdrop-blur-md text-primary px-space-xs py-space-2xs rounded-DEFAULT">DOLBY ATMOS</span>
+            </div>
+          </div>
+          <div class="flex items-end justify-between">
+            <div class="space-y-space-2xs">
+              <p class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant">CARRETE OFICIAL DE TEMPORADA</p>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface tracking-wide">SHOWREEL 2025: MATERIA Y LUZ</h3>
+            </div>
+            <div class="font-label-meta text-label-meta text-secondary hidden md:block">AUDIO MASTER: STEREO / 5.1 / ATMOS</div>
+          </div>
+        </div>
+
+        <!-- Central Play Button -->
+        <div class="relative z-10 flex flex-col items-center gap-space-sm group-hover:scale-105 transition-transform duration-300">
+          <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_40px_rgba(255,198,100,0.35)] transition-all duration-300 group-hover:bg-primary-container group-hover:shadow-[0_0_60px_rgba(255,198,100,0.5)]">
+            <span class="material-symbols-outlined text-[36px] md:text-[44px] translate-x-0.5" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+          </div>
+          <div class="bg-surface-container-lowest/90 backdrop-blur-lg px-space-md py-space-xs rounded-full shadow-lg">
+            <span class="font-label-btn text-label-btn uppercase tracking-widest text-on-surface">Play Showreel 2025 (02:30)</span>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-surface-container-high overflow-hidden">
+          <div class="h-full bg-primary w-1/3 group-hover:w-full transition-all duration-1000"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTRICAS DE IMPACTO -->
+<section class="w-full bg-surface-container-low py-space-2xl">
+  <div class="w-full px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-space-lg md:gap-space-xl">
+      <div class="flex flex-col space-y-space-2xs">
+        <span class="font-label-meta text-label-meta text-primary uppercase tracking-widest">[ VOLUMEN ]</span>
+        <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-light tracking-tight">+140</div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Proyectos cinematográficos, spots y documentales completados en postproducción in-house.</p>
+      </div>
+      <div class="flex flex-col space-y-space-2xs">
+        <span class="font-label-meta text-label-meta text-primary uppercase tracking-widest">[ RECONOCIMIENTO ]</span>
+        <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-light tracking-tight">24</div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Premios en festivales clase A: Cannes Lions, San Sebastián, Ciclope y BAFTA Shorts.</p>
+      </div>
+      <div class="flex flex-col space-y-space-2xs">
+        <span class="font-label-meta text-label-meta text-primary uppercase tracking-widest">[ ALCANCE GLOBAL ]</span>
+        <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-light tracking-tight">3</div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Continentes de rodaje recurrente: América, Europa y Asia con infraestructura local propia.</p>
+      </div>
+      <div class="flex flex-col space-y-space-2xs">
+        <span class="font-label-meta text-label-meta text-primary uppercase tracking-widest">[ CONFIANZA ]</span>
+        <div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-light tracking-tight">98%</div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Tasa de fidelidad y recomendación de estudios, agencias y directores creativos de élite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAFOLIO AUDIOVISUAL -->
+<section class="w-full py-space-3xl md:py-space-section" id="portafolio">
+  <div class="w-full px-margin-mobile md:px-margin-desktop space-y-space-2xl">
+    <!-- Header + Filters -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+      <div class="space-y-space-xs max-w-2xl">
+        <div class="flex items-center gap-space-xs font-label-meta text-label-meta text-primary uppercase tracking-widest">
+          <span class="material-symbols-outlined text-[16px]">movie</span>
+          <span>OBRAS SELECCIONADAS // ARCHIVO</span>
+        </div>
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Portafolio Audiovisual</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Una curaduría de nuestros proyectos más representativos. Dirección de fotografía con carácter, ritmo milimétrico y tratamiento cromático analógico.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-space-xs bg-surface-container-low p-space-2xs rounded-xl overflow-x-auto">
+        <button class="filter-tab active px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider bg-primary text-on-primary transition-all duration-200" data-category="all">Todos [06]</button>
+        <button class="filter-tab px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all duration-200" data-category="ficcion">Ficción [02]</button>
+        <button class="filter-tab px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all duration-200" data-category="spots">Spots [01]</button>
+        <button class="filter-tab px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all duration-200" data-category="videoclips">Videoclips [01]</button>
+        <button class="filter-tab px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all duration-200" data-category="documentales">Documentales [01]</button>
+        <button class="filter-tab px-space-md py-space-xs rounded-lg font-label-btn text-label-btn uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-all duration-200" data-category="fashion">Fashion [01]</button>
+      </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg md:gap-space-xl" id="portfolio-grid">
+
+      <!-- Obra 1: Ecos del Silencio -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="ficcion">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Ecos del Silencio" src="https://picsum.photos/id/167/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-primary text-on-primary rounded-DEFAULT">San Sebastián Oficial</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">112 MIN</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>LARGOMETRAJE FICCIÓN</span><span>2024</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">Ecos del Silencio</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Drama contemplativo sobre la memoria y el aislamiento grabado íntegramente en las islas Lofoten con luz natural de solsticio.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Mateo S. Roncal</span><span class="text-secondary">ARRI RAW / COOKE S4</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Obra 2: Volt: Neo Horizon -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="spots">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Volt: Neo Horizon" src="https://picsum.photos/id/183/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-primary text-on-primary rounded-DEFAULT">Cannes Lions Bronce</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">01:45</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>CAMPAÑA AUTOMOTRIZ GLOBAL</span><span>2024</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">Volt: Neo Horizon</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Pieza comercial de alta velocidad rodada con Russian Arm nocturno, exploración visual de la energía silenciosa y la urbe contemporánea.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Clara V. Meyer</span><span class="text-secondary">RED V-RAPTOR / MASTER ANAMORPHIC</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Obra 3: Sinfonía Carmesí -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="videoclips">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Sinfonía Carmesí" src="https://picsum.photos/id/165/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-primary text-on-primary rounded-DEFAULT">Mejor Dir. de Arte</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">03:50</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>VIDEOCLIP MUSICAL / SONY MUSIC</span><span>2024</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">Sinfonía Carmesí</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Experiencia hipnótica grabada en estudio cerrado con control robótico Bolt y diseño coreográfico escultural en 120 FPS.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Dante Almirón</span><span class="text-secondary">PHANTOM 4K / ZEISS SUPREME</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Obra 4: Guardianes del Abismo -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="documentales">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Guardianes del Abismo" src="https://picsum.photos/id/139/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-surface-container-highest text-on-surface rounded-DEFAULT">Premio Medio Ambiente</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">54 MIN</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>DOCUMENTAL DE NATURALEZA</span><span>2023</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">Guardianes del Abismo</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Expedición submarina a más de 1.800 metros de profundidad documentando especies bioluminiscentes en fosas marinas del Pacífico Sur.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Elena &amp; Gabriel Ruiz</span><span class="text-secondary">SONY VENICE 2 / CUSTOM NAUTICAM</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Obra 5: El Último Solsticio -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="ficcion">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="El Último Solsticio" src="https://picsum.photos/id/180/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-primary text-on-primary rounded-DEFAULT">Premio Guión &amp; Fotografía</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">98 MIN</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>THRILLER PSICOLÓGICO</span><span>2023</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">El Último Solsticio</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Estudio del dilema moral y el remordimiento, rodado en negativo analógico 35mm KODAK Vision3 con revelado fotoquímico personalizado.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Mateo S. Roncal</span><span class="text-secondary">35MM FILM / LEICA LEITZ PRIME</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Obra 6: Aura Haute Couture -->
+      <article class="portfolio-item group relative flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1" data-category="fashion">
+        <div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-lowest">
+          <img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="Aura Haute Couture" src="https://picsum.photos/id/164/800/450"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+          <div class="absolute top-space-sm left-space-sm right-space-sm flex items-center justify-between">
+            <span class="font-label-meta text-label-meta px-space-xs py-space-2xs bg-surface-container-highest text-on-surface rounded-DEFAULT">Milano Fashion Film Fest</span>
+            <span class="font-label-timecode text-label-timecode bg-surface-container-lowest/80 backdrop-blur-md px-space-xs py-space-2xs text-on-surface rounded-DEFAULT">02:15</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-container-lowest/40">
+            <div class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-200">
+              <span class="material-symbols-outlined text-[28px]" style="font-variation-settings:'FILL' 1;">play_arrow</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-space-md flex-1 flex flex-col justify-between space-y-space-md bg-surface-container">
+          <div class="space-y-space-2xs">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-meta text-label-meta"><span>FASHION FILM / PARÍS</span><span>2024</span></div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors duration-200">Aura Haute Couture</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Homenaje al movimiento textil y la arquitectura moderna para la colección primavera-verano presentada en la semana de la moda.</p>
+          </div>
+          <div class="pt-space-xs border-t border-surface-variant/40 flex items-center justify-between font-label-meta text-label-meta text-on-surface-variant">
+            <span>DIR: Margot Chéron</span><span class="text-secondary">ARRI ALEXA MINI LF / ULTRA PRIME</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES & MARCAS -->
+<section class="w-full bg-surface-container-lowest py-space-2xl">
+  <div class="w-full px-margin-mobile md:px-margin-desktop space-y-space-lg">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+      <span class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant">COLABORADORES Y PLATAFORMAS GLOBALES</span>
+      <span class="font-label-meta text-label-meta text-secondary">ESTÁNDAR DE CALIDAD BROADCAST &amp; THEATRICAL</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-md items-center">
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-headline-sm text-headline-sm tracking-tighter text-on-surface-variant/80 hover:text-on-surface uppercase font-bold">HBO</span>
+      </div>
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-headline-sm text-headline-sm tracking-widest text-on-surface-variant/80 hover:text-on-surface uppercase font-bold">NETFLIX</span>
+      </div>
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-label-btn text-label-btn tracking-wider text-on-surface-variant/80 hover:text-on-surface uppercase font-bold">SONY MUSIC</span>
+      </div>
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-headline-sm text-headline-sm tracking-widest text-on-surface-variant/80 hover:text-on-surface uppercase font-serif">PORSCHE</span>
+      </div>
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-label-btn text-label-btn tracking-widest text-on-surface-variant/80 hover:text-on-surface uppercase font-bold">RED BULL</span>
+      </div>
+      <div class="p-space-md bg-surface-container/50 hover:bg-surface-container rounded-lg flex items-center justify-center transition-colors duration-200 h-20">
+        <span class="font-headline-sm text-headline-sm tracking-wide text-on-surface-variant/80 hover:text-on-surface uppercase font-bold">SPOTIFY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / MANIFIESTO -->
+<section class="relative w-full py-space-3xl md:py-space-section overflow-hidden">
+  <div class="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-primary-container/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+  <div class="w-full px-margin-mobile md:px-margin-desktop">
+    <div class="p-space-xl md:p-space-3xl bg-surface-container-low rounded-2xl relative overflow-hidden shadow-2xl">
+      <div class="flex items-center justify-between font-label-timecode text-label-timecode text-primary pb-space-lg">
+        <span>SLATE [PROD_CALL // 2025]</span>
+        <span class="text-on-surface-variant font-label-meta text-label-meta">ROLL A // TAKE 01</span>
+      </div>
+      <div class="max-w-4xl space-y-space-lg">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+          "No grabamos simplemente lo que sucede frente al objetivo. Esculpimos el tiempo, la penumbra y la emoción hasta volverla inolvidable."
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          ¿Tienes un guión en desarrollo, un lanzamiento global de marca o un tratamiento que requiere una ejecución óptica extraordinaria? Nuestro equipo directivo evalúa proyectos de autor y producción comercial.
+        </p>
+        <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+          <a class="inline-flex items-center justify-center px-space-xl py-space-sm rounded-lg bg-primary text-on-primary font-label-btn text-label-btn uppercase tracking-widest transition-all duration-300 hover:bg-primary-container hover:shadow-[0_0_30px_rgba(255,198,100,0.4)]" href="contacto.html">
+            <span class="material-symbols-outlined text-[20px] mr-space-2xs">calendar_today</span>
+            Agendar Llamada con Productor
+          </a>
+          <a class="inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-surface-container-high text-on-surface hover:text-primary font-label-btn text-label-btn uppercase tracking-widest transition-all duration-200" href="servicios.html">
+            Ver Servicios de Producción
+            <span class="material-symbols-outlined text-[18px] ml-space-2xs">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="absolute -bottom-8 -right-8 opacity-5 font-display-hero text-[180px] pointer-events-none select-none text-on-surface">24FPS</div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- PORTFOLIO FILTER SCRIPT -->
+<script>
+(function() {
+  const tabs = document.querySelectorAll('.filter-tab');
+  const items = document.querySelectorAll('.portfolio-item');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('bg-primary','text-on-primary','active'); t.classList.add('text-on-surface-variant'); });
+      tab.classList.add('bg-primary','text-on-primary','active');
+      tab.classList.remove('text-on-surface-variant');
+      const category = tab.getAttribute('data-category');
+      items.forEach(item => {
+        item.style.display = (category === 'all' || item.getAttribute('data-category') === category) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+      mobileNav.classList.toggle('flex');
+    });
+  }
+})();
+</script>
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full bg-surface-container-lowest text-on-surface-variant py-space-3xl">
+  <div class="w-full px-margin-mobile md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xl pb-space-2xl">
+      <div class="space-y-space-xs">
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings:'FILL' 1;">movie</span>
+          <span class="font-headline-sm text-headline-sm text-on-surface font-light uppercase tracking-wider">Amarte</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Estudio de producción cinematográfica y publicitaria de alta fidelidad óptica, postproducción y etalonaje tonal.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-space-lg">
+        <a class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Vimeo</a>
+        <a class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Instagram</a>
+        <a class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Behance</a>
+        <a class="font-label-meta text-label-meta uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="pt-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md text-on-surface-variant">
+      <div class="flex items-center gap-space-md font-label-timecode text-label-timecode text-primary">
+        <span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span>REC [00:42:19:08]</span>
+        <span class="text-secondary font-label-meta text-label-meta">24 FPS / 2.39:1 SCOPE</span>
+      </div>
+      <div class="font-label-meta text-label-meta text-on-surface-variant">© 2025 PRODUCTORA AMARTE. TODOS LOS DERECHOS RESERVADOS.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
