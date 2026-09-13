@@ -26,7 +26,7 @@ export default function Header() {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-[14px] font-bold uppercase tracking-wider transition-colors duration-200 ${
+              className={`text-[14px] font-bold uppercase tracking-wider transition-colors duration-200 focus:outline-none ${
                 location.pathname === link.to
                   ? 'text-primary'
                   : 'text-on-surface-variant hover:text-on-surface'
