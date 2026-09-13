@@ -3,9 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "workspaces": [
+    "app"
+  ],
   "scripts": {
     "dev": "npm run dev --prefix app",
-    "build": "npm run build --prefix app",
+    "build": "npm --prefix app install && npm run build --prefix app && (cp -r app/dist ./dist 2>/dev/null || true)",
     "preview": "npm run preview --prefix app",
     "lint": "npm run lint --prefix app"
   }
