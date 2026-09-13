@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #ff0000;
+  --color-primary-hover: #cc0000;
+  --color-background: #ffffff;
+  --color-background-light: #c8c8c8;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f5f5f5;
+  --color-surface-low: #f5f5f5;
+  --color-surface-mid: #f0f0f0;
+  --color-surface-high: #e8e8e8;
+  --color-surface-highest: #e0e0e0;
+  --color-surface-variant: #d0d0d0;
+  --color-on-surface: #000000;
+  --color-on-surface-variant: #555555;
+  --color-on-primary: #ffffff;
+  --color-on-background: #000000;
+  --color-secondary: #555555;
+  --color-outline: #999999;
+  --color-outline-variant: #cccccc;
+  --color-error: #ff0000;
+
+  /* Font Families */
+  --font-display: "Roboto Condensed", sans-serif;
+  --font-body: "Roboto Condensed", sans-serif;
+  --font-editorial: "Playfair Display", serif;
+
+  /* Spacing */
+  --spacing-2xs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4.5rem;
+  --spacing-4xl: 6rem;
+  --spacing-section: 8rem;
+  --spacing-margin-mobile: 1.25rem;
+  --spacing-margin-desktop: 4rem;
+}
+
+/* Base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overscroll-behavior: none;
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Material Symbols sizing */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
