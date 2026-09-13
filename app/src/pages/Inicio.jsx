@@ -85,42 +85,18 @@ export default function Inicio() {
             </div>
           </div>
 
-          {/* Título Hero & Descripción en Cascada Vertical */}
-          <div className="max-w-6xl relative">
-            {/* Indicador vertical editorial en desktop */}
-            <div className="hidden lg:flex absolute -left-10 top-2 items-center gap-2 [writing-mode:vertical-rl] rotate-180 text-[11px] tracking-[0.3em] font-bold text-on-surface-variant/70 uppercase">
-              <span className="w-1.5 h-6 bg-primary inline-block"></span>
-              <span>ESTUDIO • CINE • NARRATIVA</span>
-            </div>
+          {/* Título Hero & Descripción */}
+          <div className="max-w-6xl space-y-md md:space-y-lg">
+            <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-semibold text-on-surface uppercase tracking-tight leading-[1.05] max-w-5xl">
+              <span className="block">CREAMOS CINE QUE DESAFÍA</span>
+              <span className="block">
+                LA <span className="font-editorial italic font-normal text-primary">GRAVEDAD</span> DE LAS IDEAS.
+              </span>
+            </h1>
 
-            <div className="space-y-6 md:space-y-8">
-              {/* Titular estructurado como párrafo display en cascada */}
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-on-surface uppercase tracking-tight leading-[0.95] max-w-5xl">
-                <span className="block transition-transform duration-300 hover:translate-x-2">Creamos</span>
-                <span className="block pl-6 sm:pl-14 md:pl-24 text-primary font-serif italic">cine que desafía</span>
-                <span className="block pl-12 sm:pl-28 md:pl-48">la <span className="text-primary not-italic font-display font-black">gravedad</span> de las ideas.</span>
-              </h1>
-
-              {/* Bloque de párrafos con sangría francesa / escalonada continua */}
-              <div className="pt-2 sm:pt-4 border-l-2 border-primary/40 pl-4 sm:pl-6 max-w-3xl space-y-4">
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                  <span className="inline-block w-2 h-2 rounded-full bg-primary"></span>
-                  <span>MANIFIESTO ÓPTICO</span>
-                </div>
-
-                {/* Párrafo principal con sangría escalonada continua */}
-                <p className="font-body text-lg sm:text-xl md:text-2xl text-on-surface font-medium leading-relaxed">
-                  <span className="block">Diseñamos narrativas de escala monumental</span>
-                  <span className="block pl-6 sm:pl-12 md:pl-16 text-on-surface-variant">y precisión óptica milimétrica, transformando cada visión</span>
-                  <span className="block pl-12 sm:pl-24 md:pl-32 text-primary font-semibold">en un manifiesto artístico memorable.</span>
-                </p>
-
-                {/* Párrafo secundario complementario */}
-                <p className="font-body text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed pl-4 sm:pl-8 border-l border-surface-variant/70">
-                  Desde piezas de ficción galardonadas hasta campañas globales para marcas audaces, elevamos el lenguaje audiovisual combinando rigor técnico analógico y vanguardia digital.
-                </p>
-              </div>
-            </div>
+            <p className="font-body text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl pt-xs leading-relaxed">
+              Diseñamos narrativas de escala monumental y precisión óptica milimétrica. Desde piezas de ficción galardonadas hasta campañas globales para marcas audaces, elevamos cada fotograma a la categoría de manifiesto artístico.
+            </p>
           </div>
 
           {/* SHOWREEL PANORÁMICO */}

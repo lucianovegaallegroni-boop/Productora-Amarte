@@ -24,8 +24,10 @@
 
   /* Font Families */
   --font-display: "Roboto Condensed", sans-serif;
-  --font-body: "Roboto Condensed", sans-serif;
+  --font-body: "Plus Jakarta Sans", "Roboto Condensed", sans-serif;
   --font-editorial: "Playfair Display", serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
 
   /* Spacing */
   --spacing-2xs: 0.25rem;
