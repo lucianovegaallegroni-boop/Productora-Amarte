@@ -94,32 +94,30 @@ export default function Inicio() {
             </div>
 
             <div className="space-y-6 md:space-y-8">
-              {/* Titular en cascada vertical (hacia abajo con sangría progresiva) */}
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-on-surface uppercase tracking-tight leading-[0.95] flex flex-col space-y-1 sm:space-y-2">
-                <span className="inline-block transition-transform duration-300 hover:translate-x-2">CREAMOS</span>
-                <span className="inline-block pl-6 sm:pl-14 md:pl-24 text-primary font-serif italic">CINE</span>
-                <span className="inline-block pl-12 sm:pl-28 md:pl-44">QUE DESAFÍA</span>
-                <span className="inline-block pl-16 sm:pl-36 md:pl-60 text-primary">LA GRAVEDAD</span>
-                <span className="inline-block pl-20 sm:pl-44 md:pl-76">DE LAS IDEAS.</span>
+              {/* Titular estructurado como párrafo display en cascada */}
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-on-surface uppercase tracking-tight leading-[0.95] max-w-5xl">
+                <span className="block transition-transform duration-300 hover:translate-x-2">Creamos</span>
+                <span className="block pl-6 sm:pl-14 md:pl-24 text-primary font-serif italic">cine que desafía</span>
+                <span className="block pl-12 sm:pl-28 md:pl-48">la <span className="text-primary not-italic font-display font-black">gravedad</span> de las ideas.</span>
               </h1>
 
-              {/* Descripción en cascada vertical: una palabra/frase por línea que se corre hacia abajo con espacios */}
-              <div className="pt-2 sm:pt-4 border-l-2 border-primary/40 pl-4 sm:pl-6 max-w-3xl">
-                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold mb-3">
+              {/* Bloque de párrafos con sangría francesa / escalonada continua */}
+              <div className="pt-2 sm:pt-4 border-l-2 border-primary/40 pl-4 sm:pl-6 max-w-3xl space-y-4">
+                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
                   <span className="inline-block w-2 h-2 rounded-full bg-primary"></span>
                   <span>MANIFIESTO ÓPTICO</span>
                 </div>
-                <div className="flex flex-col space-y-1.5 sm:space-y-2 font-body text-base sm:text-lg md:text-xl font-semibold tracking-wide text-on-surface">
-                  <span className="inline-block pl-0">Diseñamos</span>
-                  <span className="inline-block pl-4 sm:pl-8 md:pl-12 text-on-surface-variant">narrativas</span>
-                  <span className="inline-block pl-8 sm:pl-16 md:pl-24 text-on-surface">de escala</span>
-                  <span className="inline-block pl-12 sm:pl-24 md:pl-36 text-primary">monumental</span>
-                  <span className="inline-block pl-16 sm:pl-32 md:pl-48 text-on-surface-variant">y precisión</span>
-                  <span className="inline-block pl-20 sm:pl-40 md:pl-60 text-on-surface">óptica</span>
-                  <span className="inline-block pl-24 sm:pl-48 md:pl-72 text-primary font-bold">milimétrica.</span>
-                </div>
-                <p className="font-body text-sm sm:text-base text-on-surface-variant max-w-2xl pt-4 leading-relaxed">
-                  Desde piezas de ficción galardonadas hasta campañas globales para marcas audaces, elevamos cada fotograma a la categoría de manifiesto artístico.
+
+                {/* Párrafo principal con sangría escalonada continua */}
+                <p className="font-body text-lg sm:text-xl md:text-2xl text-on-surface font-medium leading-relaxed">
+                  <span className="block">Diseñamos narrativas de escala monumental</span>
+                  <span className="block pl-6 sm:pl-12 md:pl-16 text-on-surface-variant">y precisión óptica milimétrica, transformando cada visión</span>
+                  <span className="block pl-12 sm:pl-24 md:pl-32 text-primary font-semibold">en un manifiesto artístico memorable.</span>
+                </p>
+
+                {/* Párrafo secundario complementario */}
+                <p className="font-body text-sm sm:text-base text-on-surface-variant max-w-2xl leading-relaxed pl-4 sm:pl-8 border-l border-surface-variant/70">
+                  Desde piezas de ficción galardonadas hasta campañas globales para marcas audaces, elevamos el lenguaje audiovisual combinando rigor técnico analógico y vanguardia digital.
                 </p>
               </div>
             </div>
