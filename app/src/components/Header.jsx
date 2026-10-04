@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
   { to: '/', label: 'Inicio' },
-  { to: '/mision-y-vision', label: 'Misión y Visión' },
-  { to: '/servicios', label: 'Servicios' },
-  { to: '/contacto', label: 'Contáctanos' },
+  { to: '/servicios', label: 'Servicios & Portafolio' },
+  { to: '/mision-y-vision', label: 'Sobre Nosotros' },
+  { to: '/contacto', label: 'Contacto' },
 ]
 
 export default function Header() {

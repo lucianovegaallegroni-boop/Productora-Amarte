@@ -57,10 +57,10 @@ export default function MisionYVision() {
                 </div>
                 <h2 className="font-body text-3xl font-bold md:text-5xl text-on-surface">Nuestra Misión</h2>
                 <p className="font-body text-lg text-on-surface-variant">
-                  Producir cine y contenido audiovisual que trascienda fronteras y generaciones. Combinamos la visión de autor con la excelencia comercial para crear obras que provoquen, inspiren y permanezcan en la memoria colectiva.
+                  Producir contenido audiovisual y estrategias digitales que trasciendan. Combinamos la excelencia técnica cinematográfica con la visión estratégica de marketing para crear piezas que capturen la atención, generen conversación y construyan marcas memorables.
                 </p>
                 <p className="font-body text-base text-on-surface-variant">
-                  Democratizamos el acceso al arte cinematográfico de primer nivel, garantizando que cada proyecto —independientemente de su escala— reciba el mismo nivel de dedicación, precisión técnica y pasión creativa que caracteriza a las grandes producciones internacionales.
+                  Democratizamos el acceso a una producción visual de primer nivel, garantizando que cada marca —a través de paquetes mensuales, piezas comerciales o cobertura en tiempo real— reciba dedicación milimétrica, precisión estética y resultados medibles.
                 </p>
               </div>
               {/* Right: Cards */}
@@ -151,10 +151,10 @@ export default function MisionYVision() {
                 </div>
                 <h2 className="font-body text-3xl font-bold md:text-5xl text-on-surface">Nuestra Visión</h2>
                 <p className="font-body text-lg text-on-surface-variant">
-                  Ser el referente de producción cinematográfica independiente en América Latina y un puente creativo hacia el escenario global. Visualizamos un futuro donde cada historia local tiene el potencial de resonar universalmente.
+                  Ser la consultora y productora de contenido audiovisual referente para marcas líderes en América Latina y a nivel global. Visualizamos un ecosistema donde la estética de alta gama impulsa el crecimiento comercial de cada cliente.
                 </p>
                 <p className="font-body text-base text-on-surface-variant">
-                  Aspiramos a que Productora Amarte sea sinónimo de excelencia, innovación y compromiso artístico irreductible. Un estudio donde converjan las mejores mentes creativas y los recursos técnicos más avanzados del continente.
+                  Aspiramos a que Productora Amarte sea sinónimo de excelencia narrativa, innovación digital y compromiso estratégico. Un espacio creativo donde convergen las mejores ideas visuales y las metodologías de marketing más efectivas.
                 </p>
               </div>
             </div>

@@ -1,182 +1,102 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { serviciosData } from '../data/servicesData';
+import { portfolioCategories, portfolioItems } from '../data/portfolioData';
 
 export default function Servicios() {
-  const pilares = [
-    {
-      fase: '01',
-      tag: 'FASE [01] • DESARROLLO',
-      icon: 'edit_note',
-      title: 'Preproducción',
-      description: 'La arquitectura de la narrativa. Diseñamos cada milímetro de la producción para optimizar el presupuesto y garantizar la máxima potencia visual en set.',
-      featured: false,
-      deliverable: 'ENTREGABLE: CARPETA DE PRODUCCIÓN COMPLETA',
-      items: [
-        'Desarrollo y pulido de guion técnico y literario',
-        'Storyboard, animatics y arte conceptual visual',
-        'Casting internacional y dirección de talento',
-        'Scouting técnico, permisos y seguros de locación',
-        'Plan de rodaje y desglose de producción por planos',
-        'Presupuestación detallada y optimización de recursos',
-      ],
-    },
-    {
-      fase: '02',
-      tag: 'FASE [02] • RODAJE PRINCIPAL',
-      icon: 'videocam',
-      title: 'Producción en Set',
-      description: 'El instante donde la visión cobra vida física. Crew de élite, disciplina técnica rigurosa y los sistemas de cámara más avanzados de la industria internacional.',
-      featured: true,
-      deliverable: 'ENTREGABLE: MATERIAL RAW & MASTER DAILIES',
-      items: [
-        'Dirección cinematográfica y puesta en escena',
-        'Dirección de fotografía con sensores de gran formato',
-        'Iluminación cinematográfica de alta potencia y grip profesional',
-        'Captura de sonido directo multicanal en 32-bit float',
-        'Dirección de arte, props y diseño de vestuario en set',
-        'Monitoreo DIT en tiempo real y respaldo redundante LTO',
-      ],
-    },
-    {
-      fase: '03',
-      tag: 'FASE [03] • FINALIZACIÓN',
-      icon: 'movie_filter',
-      title: 'Postproducción',
-      description: 'Donde el material bruto se esculpe en una obra terminada. Montaje rítmico, etalonaje cinematográfico en ACES y diseño de audio inmersivo con master para cines.',
-      featured: false,
-      deliverable: 'ENTREGABLE: MASTER DCP 4K, PRORES & ARCHIVO',
-      items: [
-        'Montaje offline de corte de autor y conformado online 4K/8K',
-        'Color grading profesional en DaVinci Resolve con monitores grading',
-        'Composición digital, limpieza y efectos visuales (VFX)',
-        'Diseño de sonido, Foley y mezcla inmersiva Dolby Atmos',
-        'Masterización en formato DCP teatral para salas de cine',
-        'Control de calidad (QC) exhaustivo y paquetes para streaming global',
-      ],
-    },
-  ];
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeModalItem, setActiveModalItem] = useState(null);
+  const [playingVideoId, setPlayingVideoId] = useState(null);
+  const videoRefs = useRef({});
 
-  const verticales = [
-    {
-      icon: 'campaign',
-      title: 'Spots Publicitarios',
-      description: 'Campañas comerciales de alto impacto para televisión, cine y plataformas digitales. Narrativas visuales condensadas que construyen deseo de marca con lenguaje cinematográfico.',
-      format: '15s / 30s / 60s / 90s • 4K HDR',
-      badge: 'COMMERCIAL',
-    },
-    {
-      icon: 'music_note',
-      title: 'Videoclips Musicales',
-      description: 'Experiencias visuales que amplifican la identidad sonora de artistas líderes. Puestas en escena coreográficas, iluminación expresiva y diseño visual de vanguardia.',
-      format: '3-7 MIN • PHANTOM HIGH SPEED',
-      badge: 'MUSIC VIDEO',
-    },
-    {
-      icon: 'video_camera_back',
-      title: 'Documentales',
-      description: 'Historias de la vida real abordadas con rigor de investigación y sensibilidad poética. Cinematografía en condiciones extremas y montaje con pulso narrativo profundo.',
-      format: '30-120 MIN • SONY VENICE RAW',
-      badge: 'DOCUMENTARY',
-    },
-    {
-      icon: 'diamond',
-      title: 'Fashion Films',
-      description: 'Piezas audiovisuales donde la alta costura, el movimiento del cuerpo y la arquitectura dialogan en armonía. Texturas lumínicas sutiles y estética editorial refinada.',
-      format: '1-5 MIN • 35MM / LARGE FORMAT',
-      badge: 'FASHION',
-    },
-    {
-      icon: 'devices',
-      title: 'Contenido Digital & Branded',
-      description: 'Series web, documentales de marca y formatos para ecosistemas digitales con la misma factura técnica y elegancia de una producción cinematográfica de gran pantalla.',
-      format: 'MULTI-FORMATO (16:9 / 9:16)',
-      badge: 'BRANDED',
-    },
-    {
-      icon: 'theaters',
-      title: 'Cine de Autor & Ficción',
-      description: 'Cortometrajes y largometrajes destinados a festivales de clase A y distribución en salas comerciales. Desarrollo dramatúrgico integral y estándares internacionales de exhibición.',
-      format: 'DCP THEATRICAL • 2.39:1 SCOPE',
-      badge: 'CINEMA',
-    },
-  ];
+  const filteredPortfolio = portfolioItems.filter(
+    (item) => activeCategory === 'all' || item.category === activeCategory
+  );
 
-  const arsenal = [
+  const getCategoryCount = (key) => {
+    if (key === 'all') return portfolioItems.length;
+    return portfolioItems.filter((i) => i.category === key).length;
+  };
+
+  const handleCardMouseEnter = (item) => {
+    if (item.type === 'video' && videoRefs.current[item.id]) {
+      const vid = videoRefs.current[item.id];
+      vid.play().catch(() => {});
+      setPlayingVideoId(item.id);
+    }
+  };
+
+  const handleCardMouseLeave = (item) => {
+    if (item.type === 'video' && videoRefs.current[item.id]) {
+      const vid = videoRefs.current[item.id];
+      vid.pause();
+      vid.currentTime = 0;
+      setPlayingVideoId(null);
+    }
+  };
+
+  const modalidades = [
     {
-      category: 'Cámaras & Sensores',
-      icon: 'photo_camera',
-      tag: '[5 SISTEMAS]',
-      specs: [
-        { name: 'ARRI ALEXA 65', detail: 'Sensor 65mm Open Gate 6K' },
-        { name: 'ARRI ALEXA Mini LF', detail: 'Full Frame 4.5K Arri RAW' },
-        { name: 'RED V-RAPTOR 8K', detail: 'VistaVision 120 FPS 8K' },
-        { name: 'Sony VENICE 2', detail: '8.6K Dual Native ISO Sensor' },
-        { name: 'Phantom Flex4K', detail: '1000 FPS High-Speed Cinema' },
+      tipo: 'MODALIDAD 01',
+      titulo: 'Paquetes Mensuales',
+      badge: 'RETAINER MENSUAL',
+      desc: 'Plan integral recurrente de creación de contenido audiovisual, diseño de grillas de marketing y community management continuo.',
+      puntos: [
+        'Producción continua de reels y fotografías mensuales',
+        'Grilla estratégica de publicaciones para redes',
+        'Gestión activa de comunidad y pautas publicitarias',
+        'Reporte mensual de rendimiento y métricas de engagement',
       ],
+      destacado: true,
     },
     {
-      category: 'Sistemas Ópticos',
-      icon: 'lens',
-      tag: '[5 PAQUETES]',
-      specs: [
-        { name: 'Cooke S4/i Primes', detail: 'T2.0 Natural Organic Look' },
-        { name: 'ARRI Signature Primes', detail: 'T1.8 LPL Mount Full Frame' },
-        { name: 'Zeiss Supreme Primes', detail: 'Radiance Flares Coating' },
-        { name: 'ARRI Master Anamorphics', detail: '2.0x Classic Cinematic Oval' },
-        { name: 'Leica Leitz Primes', detail: 'High Telecentricity Resolution' },
+      tipo: 'MODALIDAD 02',
+      titulo: 'Por Proyecto',
+      badge: 'ON DEMAND',
+      desc: 'Producción audiovisual a la medida para campañas de lanzamiento, spots publicitarios, sesiones de fotos específicas o piezas únicas.',
+      puntos: [
+        'Desarrollo conceptual y guion de campaña',
+        'Jornadas de rodaje en set o locación seleccionada',
+        'Postproducción y entrega de masters en alta definición',
+        'Paquetes de entregables multiformato (16:9 y 9:16)',
       ],
+      destacado: false,
     },
     {
-      category: 'Iluminación & Grip',
-      icon: 'light_mode',
-      tag: '[STUDIO & ON-SET]',
-      specs: [
-        { name: 'ARRI SkyPanel S360-C', detail: 'Full Color Gamut Softlight' },
-        { name: 'Litepanels Gemini 2x1', detail: 'Bi-Color Soft Panel Wireless' },
-        { name: 'Astera Titan Tube Kits', detail: 'CRMX Wireless Tubes RGBMint' },
-        { name: 'Dedolight DLED Neo', detail: 'Aspheric Precision Optics' },
-        { name: 'HMI M-Series M90/M40', detail: 'Daylight High-Output Punch' },
+      tipo: 'MODALIDAD 03',
+      titulo: 'Cobertura de Eventos',
+      badge: 'TIEMPO REAL',
+      desc: 'Despliegue in situ para capturar la energía de lanzamientos, conferencias, festivales y activaciones de marca con entrega inmediata.',
+      puntos: [
+        'Equipo audiovisual desplegado en el evento',
+        'Contenido en tiempo real para historias y directos',
+        'Galería fotográfica profesional editada en tiempo récord',
+        'Reel resumen recap dinámico con gradación de color',
       ],
-    },
-    {
-      category: 'Sonido & Post-Audio',
-      icon: 'headphones',
-      tag: '[32-BIT / ATMOS]',
-      specs: [
-        { name: 'Sound Devices Scorpio', detail: '32-Channel 32-Bit Float Mixer' },
-        { name: 'Sennheiser MKH 8060', detail: 'Short Shotgun RF Condenser' },
-        { name: 'DPA 4017C & 4060', detail: 'Pristine Miniature Microphones' },
-        { name: 'Neumann U87 Studio', detail: 'Gold-Standard Voiceover Mic' },
-        { name: 'Dolby Atmos 7.1.4', detail: 'Mixing & Mastering Studio Suite' },
-      ],
+      destacado: false,
     },
   ];
 
   const pasos = [
     {
       num: '01',
-      title: 'Briefing & Visión',
-      desc: 'Escuchamos tu objetivo, analizamos las necesidades narrativas y definimos el concepto creativo fundacional con referencias visuales y tratamiento técnico.',
+      title: 'Briefing & Estrategia',
+      desc: 'Analizamos tu marca, tu audiencia objetivo y tus metas comerciales para trazar la ruta creativa y el calendario editorial.',
     },
     {
       num: '02',
-      title: 'Preproducción',
-      desc: 'Elaboramos el guion técnico, desgloses, casting, scouting de locaciones, plan de rodaje y presupuesto cerrado sin imprevistos.',
+      title: 'Planificación & Guion',
+      desc: 'Diseñamos la grilla mensual, elaboramos los guiones técnicos, definimos la dirección de arte y preparamos las jornadas de producción.',
     },
     {
       num: '03',
-      title: 'Rodaje en Set',
-      desc: 'Despliegue integral con crew especializado de primer nivel, dirección de actores, fotografía de precisión y monitoreo DIT de alta fidelidad.',
+      title: 'Producción & Cobertura',
+      desc: 'Ejecutamos el rodaje con equipamiento cinematográfico, iluminación profesional, dirección en set y captura de audio nítido.',
     },
     {
       num: '04',
-      title: 'Postproducción',
-      desc: 'Montaje de edición, corrección de color en espacio ACES, composición visual VFX, mezcla de audio inmersiva y musicalización original.',
-    },
-    {
-      num: '05',
-      title: 'Master & Delivery',
-      desc: 'Generación de masters DCP para festivales y cines, codificaciones ProRes 4444 XQ y entregables multiformato optimizados para cualquier pantalla.',
+      title: 'Edición & Publicación',
+      desc: 'Montaje dinámico, color grading, subtítulos estilizados, programación de contenidos, gestión de pautas y medición de engagement.',
     },
   ];
 
@@ -194,118 +114,140 @@ export default function Servicios() {
           <div className="flex flex-wrap items-center justify-between gap-sm pb-8 text-on-surface-variant">
             <div className="flex items-center gap-xs text-xs uppercase tracking-widest text-primary font-bold">
               <span className="inline-block w-2 h-2 rounded-full bg-primary animate-ping" />
-              <span>CATÁLOGO DE PRODUCCIÓN // END-TO-END</span>
+              <span>CONSULTORA & PRODUCTORA AUDIOVISUAL // 2026</span>
             </div>
             <div className="hidden sm:flex items-center gap-lg text-xs font-mono text-on-surface-variant/80 tracking-wider">
-              <span>FULL-SERVICE STUDIO</span>
+              <span>SERVICIOS DE PRODUCCIÓN</span>
               <span className="text-surface-variant">|</span>
-              <span>4K / 8K ACES WORKFLOW</span>
+              <span>PORTAFOLIO OFICIAL</span>
               <span className="text-surface-variant">|</span>
-              <span>DOLBY ATMOS CERTIFIED</span>
+              <span>MARKETING & REELS</span>
             </div>
           </div>
 
           {/* Título Hero & Descripción */}
           <div className="max-w-6xl space-y-6 md:space-y-8">
             <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-semibold text-on-surface uppercase tracking-tight leading-[1.05] max-w-5xl">
-              <span className="block">SERVICIOS DE PRODUCCIÓN DE</span>
+              <span className="block">SERVICIOS DE PRODUCCIÓN &</span>
               <span className="block">
-                <span className="font-editorial italic font-normal text-primary">PRECISIÓN</span> CINEMATOGRÁFICA.
+                PORTAFOLIO <span className="font-editorial italic font-normal text-primary">CINEMATOGRÁFICO</span>.
               </span>
             </h1>
 
             <p className="font-body text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl leading-relaxed">
-              Ofrecemos un ecosistema integral de realización audiovisual: desde la concepción dramática inicial hasta la entrega del master final en salas de cine y plataformas globales. Cada etapa está calibrada para garantizar excelencia técnica y resonancia artística.
+              Descubre nuestras cuatro líneas de servicio integrales junto a la muestra completa de producciones audiovisuales: Reels promocionales, entrevistas, productos, cobertura de eventos en tiempo real y sesiones fotográficas.
             </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#servicios"
+                className="px-6 py-3 bg-surface hover:bg-surface-high text-on-surface text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 border border-surface-variant/60"
+              >
+                Conocer Servicios
+              </a>
+              <a
+                href="#portafolio"
+                className="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 shadow-lg shadow-primary/20 flex items-center gap-2"
+              >
+                <span>Ver Portafolio de Reels & Fotos</span>
+                <span className="material-symbols-outlined text-sm">arrow_downward</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* LOS TRES PILARES ESTRUCTURALES (Preproducción, Producción, Postproducción) */}
-      <section className="w-full bg-surface-low/50 py-16 md:py-24 border-b border-surface-variant/20">
+      {/* LOS 4 SERVICIOS PRINCIPALES (Extraídos de Canva) */}
+      <section id="servicios" className="w-full bg-surface-low/50 py-16 md:py-24 border-b border-surface-variant/20 scroll-mt-20">
         <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
           {/* Section Header */}
           <div className="max-w-3xl space-y-2">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span>FASES ESTRUCTURALES // 01 — 03</span>
+              <span>LÍNEAS DE SERVICIO // 01 — 04</span>
             </div>
             <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold text-on-surface uppercase tracking-tight">
-              Los Tres Pilares de Realización
+              Nuestros Servicios
             </h2>
             <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-              Una metodología estructurada donde cada fase protege y potencia la visión creativa del director y de la marca.
+              Soluciones estructuradas para marcas que desean transformar su presencia digital a través de contenido visual superior y estrategia probada.
             </p>
           </div>
 
-          {/* 3 Pillars Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
-            {pilares.map((pilar) => (
+          {/* Grid de 4 Servicios */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            {serviciosData.map((s) => (
               <div
-                key={pilar.fase}
-                className={`relative rounded-2xl flex flex-col justify-between transition-all duration-300 p-6 md:p-8 ${
-                  pilar.featured
+                key={s.id}
+                className={`relative rounded-2xl flex flex-col justify-between transition-all duration-300 p-8 ${
+                  s.featured
                     ? 'bg-surface-mid border-2 border-primary shadow-xl ring-1 ring-primary/20 hover:shadow-2xl hover:-translate-y-1'
                     : 'bg-surface-mid/80 border border-surface-variant/40 hover:border-primary/40 hover:bg-surface-mid hover:-translate-y-1'
                 }`}
               >
-                {/* Accent top line */}
-                <div
-                  className={`absolute top-0 left-8 right-8 h-1 rounded-full ${
-                    pilar.featured ? 'bg-primary' : 'bg-transparent group-hover:bg-primary/50'
-                  }`}
-                />
-
                 <div className="space-y-6">
-                  {/* Top card bar */}
-                  <div className="flex items-center justify-between">
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        pilar.featured
-                          ? 'bg-primary text-on-primary shadow-md shadow-primary/20'
-                          : 'bg-surface-highest text-primary border border-surface-variant/40'
-                      }`}
-                    >
-                      <span className="material-symbols-outlined text-[26px]">{pilar.icon}</span>
+                  {/* Card Header */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${s.featured ? 'bg-primary text-white' : 'bg-surface text-primary border border-surface-variant/40'}`}>
+                        <span className="material-symbols-outlined text-2xl">{s.icon}</span>
+                      </div>
+                      <div>
+                        <span className="text-xs font-mono font-bold tracking-widest text-primary block">
+                          FASE [{s.fase}]
+                        </span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
+                          {s.highlight}
+                        </span>
+                      </div>
                     </div>
-
-                    <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-md bg-surface-highest/80 text-primary border border-surface-variant/30">
-                      {pilar.tag}
+                    <span className="text-2xl font-editorial font-bold text-on-surface/30">
+                      {s.fase}
                     </span>
                   </div>
 
-                  {/* Title & Desc */}
-                  <div>
-                    <h3 className="font-editorial text-2xl md:text-3xl font-bold text-on-surface mb-2">
-                      {pilar.title}
+                  {/* Title & Short Description */}
+                  <div className="space-y-3">
+                    <h3 className="font-editorial text-2xl sm:text-3xl font-semibold text-on-surface">
+                      {s.title}
                     </h3>
+                    <p className="font-body text-base font-semibold text-primary leading-snug">
+                      {s.shortDesc}
+                    </p>
                     <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                      {pilar.description}
+                      {s.fullDesc}
                     </p>
                   </div>
 
-                  {/* Deliverables Checklist */}
-                  <div className="pt-2 border-t border-surface-variant/30">
-                    <div className="text-xs uppercase tracking-wider font-mono text-on-surface-variant/70 mb-3">
-                      CAPACIDADES Y TAREAS CLAVE
-                    </div>
-                    <ul className="space-y-2.5">
-                      {pilar.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-sm font-body text-on-surface">
-                          <span className="text-primary text-xs font-bold mt-0.5 flex-shrink-0">◆</span>
-                          <span className="leading-snug text-on-surface/90">{item}</span>
+                  {/* Deliverables List */}
+                  <div className="space-y-3 pt-2 border-t border-surface-variant/30">
+                    <span className="text-xs uppercase tracking-widest font-bold text-on-surface/70 block">
+                      Capacidades & Entregables:
+                    </span>
+                    <ul className="space-y-2">
+                      {s.deliverables.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs text-on-surface-variant">
+                          <span className="material-symbols-outlined text-[15px] text-primary shrink-0 mt-0.5">
+                            check_circle
+                          </span>
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
 
-                {/* Card Deliverable Footer */}
-                <div className="mt-8 pt-4 border-t border-surface-variant/40">
-                  <div className="flex items-center justify-between text-xs font-mono text-primary font-bold">
-                    <span>{pilar.deliverable}</span>
-                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                  </div>
+                {/* Card CTA */}
+                <div className="pt-6 mt-6 border-t border-surface-variant/30">
+                  <Link
+                    to="/contacto"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary-hover group"
+                  >
+                    <span>Cotizar este servicio</span>
+                    <span className="material-symbols-outlined text-sm transition-transform duration-200 group-hover:translate-x-1">
+                      arrow_forward
+                    </span>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -313,147 +255,249 @@ export default function Servicios() {
         </div>
       </section>
 
-      {/* SERVICIOS ESPECIALIZADOS (6 Áreas) */}
-      <section className="w-full py-16 md:py-24 border-b border-surface-variant/20">
+      {/* MODALIDADES DE TRABAJO */}
+      <section className="w-full bg-surface py-16 md:py-24 border-b border-surface-variant/20">
         <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
           <div className="max-w-3xl space-y-2">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span>VERTICALES CREATIVAS // ESPECIALIZACIÓN</span>
+              <span>ESQUEMAS DE CONTRATACIÓN</span>
             </div>
             <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold text-on-surface uppercase tracking-tight">
-              Formatos y Narrativas Especializadas
+              ¿Cómo Colaboramos?
             </h2>
             <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-              Cada género demanda un lenguaje cinematográfico y un despliegue técnico particular. Estas son nuestras áreas de especialización.
+              Modelos de servicio flexibles que se adaptan a las necesidades operativas y presupuestarias de cada marca.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {verticales.map((item, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            {modalidades.map((m, idx) => (
               <div
                 key={idx}
-                className="group p-6 md:p-8 bg-surface-mid/60 rounded-2xl border border-surface-variant/40 hover:border-primary/50 hover:bg-surface-mid transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+                className={`p-8 rounded-2xl flex flex-col justify-between ${
+                  m.destacado
+                    ? 'bg-surface-mid border-2 border-primary shadow-xl ring-1 ring-primary/20'
+                    : 'bg-surface-mid/60 border border-surface-variant/40 hover:bg-surface-mid transition-colors duration-200'
+                }`}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-surface-highest/80 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shadow-sm">
-                      <span className="material-symbols-outlined text-[26px]">{item.icon}</span>
-                    </div>
-                    <span className="text-[11px] font-mono tracking-widest text-on-surface-variant/70 uppercase px-2 py-0.5 rounded bg-surface-highest/50 border border-surface-variant/30">
-                      {item.badge}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold tracking-widest text-primary">
+                      {m.tipo}
+                    </span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-surface border border-surface-variant/60 text-on-surface-variant">
+                      {m.badge}
                     </span>
                   </div>
-
-                  <h3 className="font-editorial text-xl md:text-2xl font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">
-                    {item.title}
+                  <h3 className="font-editorial text-2xl font-semibold text-on-surface">
+                    {m.titulo}
                   </h3>
                   <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                    {item.description}
+                    {m.desc}
                   </p>
+                  <ul className="space-y-2 pt-3 border-t border-surface-variant/30">
+                    {m.puntos.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-on-surface-variant">
+                        <span className="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">
+                          done
+                        </span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-surface-variant/30 flex items-center justify-between text-xs font-mono text-on-surface-variant/80">
-                  <span>{item.format}</span>
-                  <span className="material-symbols-outlined text-[16px] text-primary transition-transform group-hover:translate-x-1">
-                    arrow_forward
+                <div className="pt-6 mt-6 border-t border-surface-variant/30">
+                  <Link
+                    to="/contacto"
+                    className={`w-full inline-flex items-center justify-center py-2.5 px-4 rounded-lg font-bold text-xs uppercase tracking-wider transition-colors duration-200 ${
+                      m.destacado
+                        ? 'bg-primary hover:bg-primary-hover text-white shadow-md'
+                        : 'bg-surface hover:bg-surface-high text-on-surface border border-surface-variant/60'
+                    }`}
+                  >
+                    Consultar Disponibilidad
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* METODOLOGÍA / PROCESO EN 4 PASOS */}
+      <section className="w-full bg-surface-low py-16 md:py-24 border-b border-surface-variant/20">
+        <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
+          <div className="max-w-3xl space-y-2">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <span>METODOLOGÍA DE TRABAJO</span>
+            </div>
+            <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold text-on-surface uppercase tracking-tight">
+              De la Idea al Impacto en Pantalla
+            </h2>
+            <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
+              Un flujo de trabajo riguroso y transparente que asegura entregas puntuales y calidad consistente en cada publicación.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pasos.map((p) => (
+              <div key={p.num} className="p-6 bg-surface rounded-xl border border-surface-variant/40 space-y-3">
+                <span className="text-3xl font-editorial font-bold text-primary block">
+                  {p.num}
+                </span>
+                <h3 className="font-editorial text-xl font-semibold text-on-surface">
+                  {p.title}
+                </h3>
+                <p className="font-body text-xs text-on-surface-variant leading-relaxed">
+                  {p.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN PORTAFOLIO DE REELS Y FOTOS (Extraído directamente de Canva) */}
+      <section id="portafolio" className="w-full bg-surface py-16 md:py-24 border-b border-surface-variant/20 scroll-mt-20">
+        <div className="w-full px-margin-mobile md:px-margin-desktop space-y-10">
+          
+          {/* Section Header */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-xs text-xs uppercase tracking-widest text-primary font-bold">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary" />
+              <span>PORTAFOLIO PRODUCTORA AMARTE // REELS & FOTOS</span>
+            </div>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <h2 className="font-editorial text-3xl sm:text-5xl font-semibold text-on-surface uppercase tracking-tight">
+                Muestras Oficiales de Producción
+              </h2>
+              <p className="font-body text-sm text-on-surface-variant max-w-md">
+                Explora nuestras piezas por categoría. Pasa el cursor sobre un reel para ver una vista previa, o haz clic para reproducirlo en alta resolución.
+              </p>
+            </div>
+          </div>
+
+          {/* Categorías / Tabs del Canva */}
+          <div className="flex flex-wrap items-center gap-2 border-b border-surface-variant/30 pb-4">
+            {portfolioCategories.map((cat) => {
+              const count = getCategoryCount(cat.key);
+              const isActive = activeCategory === cat.key;
+              return (
+                <button
+                  key={cat.key}
+                  onClick={() => setActiveCategory(cat.key)}
+                  className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+                    isActive
+                      ? 'bg-primary text-white shadow-md shadow-primary/20'
+                      : 'bg-surface-mid/80 text-on-surface-variant hover:bg-surface-mid hover:text-on-surface'
+                  }`}
+                >
+                  <span>{cat.label}</span>
+                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${isActive ? 'bg-black/20 text-white' : 'bg-surface text-on-surface-variant'}`}>
+                    {count < 10 ? `0${count}` : count}
                   </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ARSENAL TÉCNICO (Tech Specs) */}
-      <section className="w-full bg-surface-low/60 py-16 md:py-24 border-b border-surface-variant/20">
-        <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
-          <div className="max-w-3xl space-y-2">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span>INFRAESTRUCTURA // TECH SPECS</span>
-            </div>
-            <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold text-on-surface uppercase tracking-tight">
-              Arsenal Técnico de Élite
-            </h2>
-            <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-              Equipamiento cinematográfico propio y alianzas exclusivas con las principales casas de renta óptica internacionales.
-            </p>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {arsenal.map((col, idx) => (
+          {/* Portfolio Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-start">
+            {filteredPortfolio.map((item) => (
               <div
-                key={idx}
-                className="bg-surface-mid/80 rounded-2xl p-6 border border-surface-variant/40 hover:border-primary/40 transition-colors"
+                key={item.id}
+                onClick={() => setActiveModalItem(item)}
+                onMouseEnter={() => handleCardMouseEnter(item)}
+                onMouseLeave={() => handleCardMouseLeave(item)}
+                className="group relative cursor-pointer bg-surface-mid rounded-xl overflow-hidden border border-surface-variant/40 hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col"
               >
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-surface-variant/40">
-                  <div className="flex items-center gap-2.5">
-                    <span className="material-symbols-outlined text-primary text-[22px]">{col.icon}</span>
-                    <h3 className="font-editorial text-lg font-bold text-on-surface">{col.category}</h3>
-                  </div>
-                  <span className="text-[10px] font-mono text-primary font-bold">{col.tag}</span>
+                {/* Visual Media Container */}
+                <div className={`w-full relative overflow-hidden bg-black ${item.type === 'video' ? 'aspect-[9/16]' : 'aspect-[4/5]'}`}>
+                  {item.type === 'video' ? (
+                    <>
+                      {/* Video Player Preview */}
+                      <video
+                        ref={(el) => (videoRefs.current[item.id] = el)}
+                        src={item.src}
+                        poster={item.thumbnail}
+                        muted
+                        playsInline
+                        loop
+                        preload="metadata"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                      {/* Video Badges & Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 flex flex-col justify-between p-4 pointer-events-none">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono font-bold bg-primary text-white px-2 py-0.5 rounded shadow">
+                            REEL
+                          </span>
+                          <span className="text-[11px] font-mono font-bold bg-black/60 backdrop-blur-md text-white px-2 py-0.5 rounded">
+                            {item.duration}
+                          </span>
+                        </div>
+
+                        {/* Central Play Indicator */}
+                        <div className="self-center">
+                          <div className={`w-12 h-12 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg transition-transform duration-300 ${playingVideoId === item.id ? 'opacity-0 scale-75' : 'opacity-90 group-hover:scale-110'}`}>
+                            <span className="material-symbols-outlined text-2xl">play_arrow</span>
+                          </div>
+                        </div>
+
+                        <div className="space-y-1">
+                          <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold block">
+                            {item.tag}
+                          </span>
+                          <h3 className="font-editorial text-lg font-semibold text-white leading-tight">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Image Item */}
+                      <img
+                        src={item.src}
+                        alt={item.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 flex flex-col justify-between p-4 pointer-events-none">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white px-2 py-0.5 rounded">
+                            FOTO
+                          </span>
+                          <span className="text-white/80 material-symbols-outlined text-base">
+                            zoom_in
+                          </span>
+                        </div>
+                        <div className="space-y-1">
+                          <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold block">
+                            {item.tag}
+                          </span>
+                          <h3 className="font-editorial text-lg font-semibold text-white leading-tight">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                <ul className="space-y-3.5">
-                  {col.specs.map((item, sIdx) => (
-                    <li key={sIdx} className="space-y-0.5">
-                      <div className="font-body text-sm font-bold text-on-surface flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
-                        <span>{item.name}</span>
-                      </div>
-                      <div className="font-mono text-xs text-on-surface-variant/70 pl-3">
-                        {item.detail}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PIPELINE / PROCESO */}
-      <section className="w-full py-16 md:py-24 border-b border-surface-variant/20">
-        <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
-          <div className="max-w-3xl space-y-2">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span>WORKFLOW // PIPELINE</span>
-            </div>
-            <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-semibold text-on-surface uppercase tracking-tight">
-              Del Concepto al Master
-            </h2>
-            <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-              Un flujo de trabajo riguroso y transparente, probado en más de 140 producciones exitosas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6">
-            {pasos.map((paso, idx) => (
-              <div
-                key={idx}
-                className="relative p-6 bg-surface-mid/70 rounded-2xl border border-surface-variant/40 hover:border-primary/50 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-bold text-primary">{paso.num}</span>
-                    <span className="text-[10px] font-mono uppercase text-on-surface-variant/60 tracking-wider">
-                      FASE {paso.num}
-                    </span>
-                  </div>
-                  <h3 className="font-editorial text-lg font-bold text-on-surface mb-2">
-                    {paso.title}
-                  </h3>
-                  <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                    {paso.desc}
+                {/* Card Bottom Details */}
+                <div className="p-4 bg-surface space-y-1 border-t border-surface-variant/30 flex-1 flex flex-col justify-between">
+                  <p className="font-body text-xs text-on-surface-variant line-clamp-2">
+                    {item.subtitle}
                   </p>
-                </div>
-
-                <div className="mt-6 pt-3 border-t border-surface-variant/30 flex items-center gap-1.5 text-[11px] font-mono text-primary font-semibold">
-                  <span className="w-1 h-1 rounded-full bg-primary"></span>
-                  <span>CONFIRMADO</span>
+                  <div className="pt-2 flex items-center justify-between text-[11px] font-bold text-primary">
+                    <span>{item.type === 'video' ? 'Ver Reel Completo' : 'Ampliar Fotografía'}</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -462,51 +506,98 @@ export default function Servicios() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="relative w-full py-16 md:py-24 overflow-hidden">
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[160px] pointer-events-none -z-10" />
-
-        <div className="w-full px-margin-mobile md:px-margin-desktop">
-          <div className="p-8 md:p-14 bg-surface-mid rounded-3xl border border-surface-variant/40 relative overflow-hidden shadow-2xl">
-            <div className="flex items-center justify-between font-mono text-xs font-bold text-primary pb-6 border-b border-surface-variant/30">
-              <span className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-                SLATE [QUOTE_REQ // 2026]
-              </span>
-              <span className="text-on-surface-variant hidden sm:inline">PRODUCCIÓN CINEMATOGRÁFICA</span>
-            </div>
-
-            <div className="max-w-3xl space-y-6 pt-6">
-              <h2 className="font-editorial text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface uppercase tracking-tight leading-tight">
-                Lleva tu proyecto al siguiente nivel visual.
-              </h2>
-              <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-                Cuéntanos tu idea o tratamiento. Nuestro equipo de directores y productores analizará la viabilidad técnica y te presentará una propuesta de producción detallada con desglose y presupuesto.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  to="/contacto"
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-primary text-on-primary font-body text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:bg-primary-hover hover:scale-[1.02] shadow-lg shadow-primary/20"
-                >
-                  <span className="material-symbols-outlined text-[20px] mr-2">request_quote</span>
-                  Solicitar Presupuesto
-                </Link>
-                <Link
-                  to="/#portafolio"
-                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-surface-highest text-on-surface hover:text-primary font-body text-sm font-bold uppercase tracking-widest transition-all duration-200 border border-surface-variant/40"
-                >
-                  Ver Showreel & Trabajos
-                  <span className="material-symbols-outlined text-[18px] ml-2">arrow_forward</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-10 -right-10 opacity-5 font-editorial text-[200px] pointer-events-none select-none text-on-surface">
-              CINEMA
-            </div>
+      <section className="w-full bg-black text-white py-16 md:py-24">
+        <div className="w-full px-margin-mobile md:px-margin-desktop text-center space-y-8 max-w-4xl mx-auto">
+          <span className="inline-block px-3 py-1 bg-white/10 text-primary text-xs font-mono font-bold uppercase tracking-widest rounded-full">
+            COMENCEMOS HOY // PRODUCTORA AMARTE
+          </span>
+          <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl font-semibold uppercase tracking-tight leading-tight">
+            ¿Listo para llevar el contenido de tu marca a otro nivel?
+          </h2>
+          <p className="font-body text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+            Platiquemos sobre los objetivos de tu empresa y diseñemos un plan de contenido y marketing a la medida de tus metas.
+          </p>
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/contacto"
+              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white font-bold text-sm uppercase tracking-wider rounded-lg transition-colors duration-200 shadow-lg shadow-primary/25"
+            >
+              Iniciar Proyecto
+            </Link>
+            <Link
+              to="/"
+              className="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider rounded-lg transition-colors duration-200 border border-white/20"
+            >
+              Volver al Inicio
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* LIGHTBOX / MODAL PARA VIDEOS O FOTOS */}
+      {activeModalItem && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-fadeIn"
+          onClick={() => setActiveModalItem(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[92vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveModalItem(null)}
+              className="absolute -top-12 right-0 md:-right-12 w-10 h-10 rounded-full bg-white/20 hover:bg-primary text-white flex items-center justify-center transition-colors duration-200 cursor-pointer z-10"
+              aria-label="Cerrar modal"
+            >
+              <span className="material-symbols-outlined text-2xl">close</span>
+            </button>
+
+            {/* Media Rendering */}
+            <div className="overflow-hidden rounded-xl bg-black shadow-2xl flex items-center justify-center">
+              {activeModalItem.type === 'video' ? (
+                <video
+                  src={activeModalItem.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  loop
+                  className="max-h-[75vh] w-auto max-w-[90vw] rounded-xl object-contain bg-black"
+                />
+              ) : (
+                <img
+                  src={activeModalItem.src}
+                  alt={activeModalItem.title}
+                  className="max-h-[75vh] max-w-[90vw] object-contain rounded-xl"
+                />
+              )}
+            </div>
+
+            {/* Metadata Footer */}
+            <div className="w-full mt-4 p-4 bg-surface rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-on-surface">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold block">
+                  {activeModalItem.tag}
+                </span>
+                <h4 className="font-editorial text-xl font-semibold">
+                  {activeModalItem.title}
+                </h4>
+                <p className="font-body text-xs text-on-surface-variant">
+                  {activeModalItem.subtitle}
+                </p>
+              </div>
+              <Link
+                to="/contacto"
+                className="px-4 py-2 bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shrink-0"
+              >
+                Cotizar Proyecto Similar
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

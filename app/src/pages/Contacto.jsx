@@ -30,22 +30,22 @@ export default function Contacto() {
 
           <div className="w-full px-margin-mobile md:px-margin-desktop pt-lg md:pt-2xl">
             <div className="flex flex-wrap items-center justify-between gap-sm pb-lg text-on-surface-variant">
-              <div className="flex items-center gap-xs font-body text-xs uppercase tracking-widest text-primary">
+              <div className="flex items-center gap-xs font-body text-xs uppercase tracking-widest text-primary font-bold">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-                <span>INICIA TU PROYECTO</span>
+                <span>INICIA TU PROYECTO // CONSULTORÍA</span>
               </div>
               <div className="hidden sm:flex items-center gap-lg font-body text-sm font-bold text-on-surface-variant/80">
-                <span>OPEN FOR PROJECTS</span>
+                <span>PRODUCTORA AMARTE</span>
                 <span className="text-surface-variant">|</span>
-                <span>2025 Q3-Q4</span>
+                <span>DISPONIBLE PARA NUEVAS MARCAS</span>
               </div>
             </div>
             <div className="max-w-6xl space-y-md">
-              <h1 className="font-display text-4xl font-black md:text-7xl text-on-surface leading-tight tracking-tight uppercase">
-                Convierte tu visión en <span className="italic font-normal text-primary">realidad</span> cinematográfica.
+              <h1 className="font-editorial text-4xl font-semibold md:text-7xl text-on-surface leading-tight tracking-tight uppercase">
+                Potenciemos tu marca con <span className="italic font-normal text-primary">contenido</span> que convierte.
               </h1>
-              <p className="font-body text-lg text-on-surface-variant max-w-3xl pt-xs">
-                Cada gran producción comienza con una conversación. Cuéntanos tu idea, tu visión, tu sueño cinematográfico. Nuestro equipo directivo está listo para evaluar tu proyecto y diseñar un plan de acción a la medida.
+              <p className="font-body text-lg text-on-surface-variant max-w-3xl pt-xs leading-relaxed">
+                Cuéntanos sobre tu empresa, tus metas y lo que buscas lograr. Ya sea que necesites un paquete mensual de reels, gestión integral de redes sociales, una sesión fotográfica o la cobertura en vivo de tu próximo evento, nuestro equipo está listo para asesorarte.
               </p>
             </div>
           </div>
@@ -59,74 +59,74 @@ export default function Contacto() {
               <div className="lg:col-span-2 bg-surface-mid rounded-xl p-lg md:p-xl relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-primary"></div>
                 <div className="flex items-center justify-between mb-xl">
-                  <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest">
+                  <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest font-bold">
                     <span className="material-symbols-outlined text-[16px]">edit_document</span>
-                    <span>FORMULARIO DE PROYECTO</span>
+                    <span>SOLICITUD DE PROYECTO & ASESORÍA</span>
                   </div>
-                  <span className="font-body text-sm font-bold text-on-surface-variant">TAKE 01</span>
+                  <span className="font-body text-sm font-bold text-on-surface-variant">2026</span>
                 </div>
 
                 <form className="space-y-lg" onSubmit={handleFormSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
                     <div className="space-y-2xs">
                       <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="nombre">Nombre completo</label>
-                      <input className={inputClassName} id="nombre" name="nombre" placeholder="Tu nombre completo" required type="text" />
+                      <input className={inputClassName} id="nombre" name="nombre" placeholder="Tu nombre y apellido" required type="text" />
                     </div>
                     <div className="space-y-2xs">
-                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="email">Correo electrónico</label>
-                      <input className={inputClassName} id="email" name="email" placeholder="correo@ejemplo.com" required type="email" />
+                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="empresa">Empresa o Marca</label>
+                      <input className={inputClassName} id="empresa" name="empresa" placeholder="Nombre de tu marca / negocio" required type="text" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
                     <div className="space-y-2xs">
-                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="telefono">Teléfono</label>
-                      <input className={inputClassName} id="telefono" name="telefono" placeholder="+52 55 1234 5678" type="tel" />
+                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="email">Correo electrónico</label>
+                      <input className={inputClassName} id="email" name="email" placeholder="correo@tuempresa.com" required type="email" />
                     </div>
                     <div className="space-y-2xs">
-                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="tipo">Tipo de proyecto</label>
+                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="telefono">Teléfono / WhatsApp</label>
+                      <input className={inputClassName} id="telefono" name="telefono" placeholder="+52 55 1234 5678" type="tel" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                    <div className="space-y-2xs">
+                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="tipo">Servicio de interés</label>
                       <select className={`${inputClassName} appearance-none cursor-pointer`} id="tipo" name="tipo" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="largometraje">Largometraje</option>
-                        <option value="cortometraje">Cortometraje</option>
-                        <option value="spot">Spot Publicitario</option>
-                        <option value="videoclip">Videoclip Musical</option>
-                        <option value="documental">Documental</option>
-                        <option value="fashion">Fashion Film</option>
-                        <option value="digital">Contenido Digital</option>
-                        <option value="otro">Otro</option>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="paquete-mensual">Creación de Contenido (Paquete Mensual)</option>
+                        <option value="por-proyecto">Creación de Contenido (Por Proyecto)</option>
+                        <option value="estrategia-marketing">Diseño de Estrategias de Marketing</option>
+                        <option value="community-management">Community Management (Instagram, LinkedIn, TikTok)</option>
+                        <option value="cobertura-eventos">Cobertura de Eventos en Tiempo Real</option>
+                        <option value="sesion-fotos">Sesión de Fotos (Editorial, Producto o Marca)</option>
+                        <option value="reels-comerciales">Producción de Reels Comerciales / Entrevistas</option>
+                        <option value="paquete-integral">Paquete Integral 360° (Producción + Marketing)</option>
+                        <option value="otro">Otro requerimiento</option>
                       </select>
+                    </div>
+
+                    <div className="space-y-2xs">
+                      <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="redes">Red social principal de la marca</label>
+                      <input className={inputClassName} id="redes" name="redes" placeholder="@tu_cuenta (Instagram, TikTok, etc.)" type="text" />
                     </div>
                   </div>
 
                   <div className="space-y-2xs">
-                    <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="presupuesto">Presupuesto estimado</label>
-                    <select className={`${inputClassName} appearance-none cursor-pointer`} id="presupuesto" name="presupuesto">
-                      <option value="">Selecciona un rango</option>
-                      <option value="10k">Menos de $10,000 USD</option>
-                      <option value="10-50k">$10,000 – $50,000 USD</option>
-                      <option value="50-150k">$50,000 – $150,000 USD</option>
-                      <option value="150-500k">$150,000 – $500,000 USD</option>
-                      <option value="500k+">Más de $500,000 USD</option>
-                      <option value="tbd">Por definir</option>
-                    </select>
+                    <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="mensaje">Descripción de las necesidades de la marca</label>
+                    <textarea className={`${inputClassName} resize-y min-h-[140px]`} id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu negocio, tus objetivos actuales, qué tipo de contenido necesitas y fechas aproximadas..." required></textarea>
                   </div>
 
-                  <div className="space-y-2xs">
-                    <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="mensaje">Mensaje / Descripción del proyecto</label>
-                    <textarea className={`${inputClassName} resize-y min-h-[160px]`} id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto: la historia, el estilo visual, referencias, fechas tentativas..." required></textarea>
-                  </div>
-
-                  <button className={`w-full md:w-auto inline-flex items-center justify-center px-xl py-sm rounded-lg text-on-primary font-body text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-sm ${formSuccess ? 'bg-primary-hover' : 'bg-primary hover:bg-primary-hover hover:shadow-md'}`} type="submit">
+                  <button className={`w-full md:w-auto inline-flex items-center justify-center px-xl py-sm rounded-lg text-white font-body text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-md ${formSuccess ? 'bg-primary-hover' : 'bg-primary hover:bg-primary-hover hover:shadow-lg'}`} type="submit">
                     {formSuccess ? (
                       <>
                         <span className="material-symbols-outlined text-[20px] mr-2xs">check_circle</span>
-                        ¡Propuesta Enviada!
+                        ¡Mensaje Enviado con Éxito!
                       </>
                     ) : (
                       <>
                         <span className="material-symbols-outlined text-[20px] mr-2xs">send</span>
-                        Enviar Propuesta de Proyecto
+                        Enviar Solicitud de Proyecto
                       </>
                     )}
                   </button>
@@ -136,11 +136,11 @@ export default function Contacto() {
               {/* Info de contacto */}
               <div className="space-y-lg">
                 <div className="space-y-xs mb-lg">
-                  <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest">
+                  <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest font-bold">
                     <span className="material-symbols-outlined text-[16px]">contact_page</span>
-                    <span>CONTACTO DIRECTO</span>
+                    <span>ATENCIÓN DIRECTA</span>
                   </div>
-                  <h3 className="font-body text-xl font-semibold text-on-surface">Información de Contacto</h3>
+                  <h3 className="font-editorial text-2xl font-semibold text-on-surface">Información de Contacto</h3>
                 </div>
 
                 <div className="p-md bg-surface-low rounded-xl flex items-start gap-md hover:bg-surface-mid transition-colors duration-200">
@@ -148,8 +148,8 @@ export default function Contacto() {
                     <span className="material-symbols-outlined text-primary text-[20px]">mail</span>
                   </div>
                   <div>
-                    <p className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-2xs">Email</p>
-                    <p className="font-body text-base text-on-surface-variant">contacto@productoraamarte.com</p>
+                    <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-2xs">Email</p>
+                    <p className="font-body text-sm text-on-surface-variant">contacto@productoraamarte.com</p>
                   </div>
                 </div>
 
@@ -158,8 +158,8 @@ export default function Contacto() {
                     <span className="material-symbols-outlined text-primary text-[20px]">phone</span>
                   </div>
                   <div>
-                    <p className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-2xs">Teléfono</p>
-                    <p className="font-body text-base text-on-surface-variant">+52 55 1234 5678</p>
+                    <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-2xs">WhatsApp / Teléfono</p>
+                    <p className="font-body text-sm text-on-surface-variant">+52 55 1234 5678</p>
                   </div>
                 </div>
 
@@ -168,8 +168,8 @@ export default function Contacto() {
                     <span className="material-symbols-outlined text-primary text-[20px]">location_on</span>
                   </div>
                   <div>
-                    <p className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-2xs">Ubicación</p>
-                    <p className="font-body text-base text-on-surface-variant">Ciudad de México, México</p>
+                    <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-2xs">Ubicación</p>
+                    <p className="font-body text-sm text-on-surface-variant">Ciudad de México, México</p>
                   </div>
                 </div>
 
@@ -178,18 +178,18 @@ export default function Contacto() {
                     <span className="material-symbols-outlined text-primary text-[20px]">schedule</span>
                   </div>
                   <div>
-                    <p className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-2xs">Horario</p>
-                    <p className="font-body text-base text-on-surface-variant">Lun – Vie, 9:00 – 18:00 (CST)</p>
+                    <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-2xs">Horario de Atención</p>
+                    <p className="font-body text-sm text-on-surface-variant">Lunes a Viernes, 9:00 – 18:00 (CST)</p>
                   </div>
                 </div>
 
                 {/* Social Links */}
                 <div className="pt-lg border-t border-outline/40">
-                  <p className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-md">Redes Sociales</p>
+                  <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-md">Canales & Redes</p>
                   <div className="flex flex-wrap gap-sm">
-                    <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">Vimeo</a>
                     <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">Instagram</a>
-                    <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">Behance</a>
+                    <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">LinkedIn</a>
+                    <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">TikTok</a>
                     <a className="px-md py-xs bg-surface-low rounded-lg font-body text-xs text-on-surface-variant hover:text-primary hover:bg-surface-mid transition-all duration-200 uppercase tracking-widest" href="#">YouTube</a>
                   </div>
                 </div>
@@ -198,112 +198,61 @@ export default function Contacto() {
           </div>
         </section>
 
-        {/* ESTUDIO / MAPA */}
-        <section className="w-full bg-surface-low py-3xl md:py-section">
-          <div className="w-full px-margin-mobile md:px-margin-desktop">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2xl items-start">
-              {/* Map Placeholder */}
-              <div className="bg-surface-dim rounded-xl overflow-hidden aspect-[16/10] relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-surface-dim via-surface-mid to-surface-low opacity-90"></div>
-                <div className="relative z-10 text-center space-y-md">
-                  <span className="material-symbols-outlined text-primary text-[48px]">map</span>
-                  <div>
-                    <p className="font-body text-xl font-semibold text-on-surface">Nuestro Estudio</p>
-                    <p className="font-body text-sm font-bold text-primary mt-2xs">LAT 19°25'N / LON 99°07'W</p>
-                  </div>
-                  <p className="font-body text-sm text-on-surface-variant max-w-xs mx-auto">Col. Roma Norte, Ciudad de México, CP 06700</p>
-                </div>
-                {/* Grid pattern decoration */}
-                <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(rgba(255,0,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,0,0,0.3) 1px, transparent 1px)", backgroundSize: "40px 40px" }}></div>
-              </div>
-
-              {/* Studio Info */}
-              <div className="space-y-lg">
-                <div className="space-y-xs">
-                  <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest">
-                    <span className="material-symbols-outlined text-[16px]">apartment</span>
-                    <span>SEDE PRINCIPAL // CDMX</span>
-                  </div>
-                  <h2 className="font-body text-3xl font-bold md:text-3xl text-on-surface">Nuestro Estudio</h2>
-                  <p className="font-body text-base text-on-surface-variant">
-                    Ubicado en el corazón creativo de la Ciudad de México, nuestro estudio combina espacios de preproducción, sala de color calibrada, suites de edición y un stage de rodaje controlado de 200m².
-                  </p>
-                </div>
-
-                <div className="space-y-md">
-                  <div className="p-md bg-surface-mid rounded-xl">
-                    <h4 className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-sm">Dirección Completa</h4>
-                    <p className="font-body text-base text-on-surface-variant">Calle Orizaba 123, Int. 4<br />Col. Roma Norte, Cuauhtémoc<br />Ciudad de México, CP 06700, México</p>
-                  </div>
-                  <div className="p-md bg-surface-mid rounded-xl">
-                    <h4 className="font-body text-sm font-bold text-on-surface uppercase tracking-wider mb-sm">Horario de Operación</h4>
-                    <div className="space-y-2xs font-body text-sm">
-                      <div className="flex justify-between text-on-surface-variant"><span>Lunes – Viernes</span><span className="text-on-surface">9:00 – 18:00</span></div>
-                      <div className="flex justify-between text-on-surface-variant"><span>Sábado</span><span className="text-on-surface">10:00 – 14:00 (con cita)</span></div>
-                      <div className="flex justify-between text-on-surface-variant"><span>Domingo</span><span className="text-secondary">Cerrado</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
-        <section className="w-full py-3xl md:py-section">
-          <div className="w-full px-margin-mobile md:px-margin-desktop space-y-2xl">
+        <section className="w-full bg-surface-low py-16 md:py-24 border-t border-surface-variant/20">
+          <div className="w-full px-margin-mobile md:px-margin-desktop space-y-12">
             <div className="space-y-xs max-w-2xl">
-              <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest">
+              <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest font-bold">
                 <span className="material-symbols-outlined text-[16px]">help</span>
                 <span>FAQ // PREGUNTAS FRECUENTES</span>
               </div>
-              <h2 className="font-body text-3xl font-bold md:text-5xl text-on-surface">Preguntas Frecuentes</h2>
+              <h2 className="font-editorial text-3xl font-semibold md:text-5xl text-on-surface">Preguntas Frecuentes</h2>
             </div>
 
             <div className="max-w-4xl space-y-sm">
               {[
                 {
-                  q: "¿Cuál es el proceso para iniciar un proyecto?",
-                  a: "Todo comienza con una conversación. Puedes enviarnos tu propuesta a través del formulario o contactarnos directamente. Nuestro equipo de producción evaluará tu proyecto en un plazo de 48-72 horas y agendaremos una videollamada para discutir el concepto, el alcance, el presupuesto y el cronograma. Una vez alineados, procedemos con la fase de preproducción."
+                  q: "¿Cómo funcionan los paquetes mensuales de creación de contenido?",
+                  a: "Diseñamos una grilla mensual con objetivos concretos. Realizamos jornadas de rodaje programadas para producir en lote tus reels, fotos y piezas gráficas del mes. Editamos, musicalizamos y calendarizamos para que tu marca tenga publicaciones constantes de alto nivel sin que tengas que preocuparte por la producción diaria."
                 },
                 {
-                  q: "¿Trabajan con presupuestos limitados?",
-                  a: "Sí. Creemos que la calidad no debería estar limitada por el presupuesto. Trabajamos con proyectos de todos los tamaños y adaptamos nuestros recursos y equipo para maximizar el valor de cada producción. Lo más importante para nosotros es la historia y la visión del proyecto."
+                  q: "¿Qué incluye el servicio de Community Management?",
+                  a: "Manejo completo en Instagram, LinkedIn y TikTok: desde la publicación de los contenidos en horarios óptimos, hasta la interacción activa con usuarios, respuesta rápida a mensajes directos, moderación de comentarios, gestión de pautas publicitarias (Meta Ads / TikTok Ads) y entrega mensual de métricas de crecimiento y engagement."
                 },
                 {
-                  q: "¿Ofrecen servicios internacionales?",
-                  a: "Absolutamente. Hemos rodado en más de 12 países y 3 continentes. Contamos con infraestructura local, partners técnicos y fijadores en las principales ciudades de América, Europa y Asia. Nuestro equipo maneja producción internacional con experiencia en permisos, logística y regulaciones locales."
+                  q: "¿Cómo se coordina la cobertura de eventos en tiempo real?",
+                  a: "Nuestro equipo se traslada al lugar del evento con equipo cinematográfico ligero y de rápida respuesta. Capturamos los momentos clave y generamos contenido al instante para historias y directos mientras el evento sucede. Posteriormente entregamos una galería fotográfica completa editada y un reel recap de alto impacto."
                 },
                 {
-                  q: "¿Cuánto tiempo toma producir un proyecto típico?",
-                  a: "Depende del tipo y escala del proyecto. Un spot publicitario puede completarse en 3-6 semanas. Un videoclip en 4-8 semanas. Un cortometraje en 2-4 meses. Un largometraje puede tomar de 6 meses a 2 años. Siempre proporcionamos un cronograma detallado durante la fase de preproducción."
+                  q: "¿Puedo contratar solo una sesión de fotos o un reel comercial?",
+                  a: "¡Sí! Además de nuestros planes mensuales, trabajamos bajo la modalidad On-Demand por proyecto para marcas que requieren una campaña específica, un lote único de fotografías de producto o un spot puntual."
                 },
                 {
-                  q: "¿Qué formatos de entrega manejan?",
-                  a: "Entregamos en todos los formatos profesionales: DCP para proyección en sala, ProRes/DNxHR para broadcast, H.264/H.265 para digital, HDR10+ y Dolby Vision para plataformas de streaming. También manejamos masterización en Dolby Atmos para audio inmersivo y subtitulado/localización en múltiples idiomas."
+                  q: "¿En qué plataformas tienen mayor experiencia?",
+                  a: "Nuestras estrategias y formatos están optimizados para las plataformas de mayor retorno de atención actual: Instagram (Reels y Feed), TikTok (contenido dinámico orgánico y Ads) y LinkedIn (posicionamiento de marca corporativa y liderazgo)."
                 },
                 {
-                  q: "¿Cómo puedo ver más de su trabajo?",
+                  q: "¿Cómo puedo ver más ejemplos de sus reels y fotos?",
                   a: (
                     <>
-                      Puedes explorar nuestro <Link to="/#portafolio" className="text-primary hover:underline">portafolio audiovisual</Link> en nuestra página principal. También compartimos contenido behind-the-scenes y nuevos proyectos en nuestras redes sociales: Vimeo, Instagram, Behance y YouTube. Para proyectos confidenciales o no publicados, agenda una llamada con nuestro equipo.
+                      Puedes explorar nuestro <Link to="/#portafolio" className="text-primary hover:underline font-bold">portafolio interactivo</Link> en la página de inicio, dividido en Reels Promocionales, Entrevistas, Productos, Cobertura de Eventos y Sesiones Fotográficas.
                     </>
                   )
                 }
               ].map((faq, index) => (
-                <div key={index} className={`bg-surface-mid rounded-xl overflow-hidden border ${openFaq === index ? 'border-primary/30' : 'border-outline/30'}`}>
+                <div key={index} className={`bg-surface rounded-xl overflow-hidden border ${openFaq === index ? 'border-primary/40' : 'border-surface-variant/40'}`}>
                   <button
-                    className="w-full flex items-center justify-between p-lg text-left"
+                    className="w-full flex items-center justify-between p-lg text-left cursor-pointer"
                     type="button"
                     onClick={() => toggleFaq(index)}
                   >
-                    <span className="font-body text-xl font-semibold text-on-surface pr-md">{faq.q}</span>
+                    <span className="font-editorial text-xl font-semibold text-on-surface pr-md">{faq.q}</span>
                     <span className="material-symbols-outlined text-primary text-[24px] transition-transform duration-300" style={{ transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                       expand_more
                     </span>
                   </button>
                   <div className={`px-lg pb-lg ${openFaq === index ? 'block' : 'hidden'}`}>
-                    <p className="font-body text-base text-on-surface-variant">{faq.a}</p>
+                    <p className="font-body text-sm text-on-surface-variant leading-relaxed">{faq.a}</p>
                   </div>
                 </div>
               ))}

@@ -10,11 +10,11 @@ export default function Footer() {
               <img src="/6.png" alt="Productora Amarte" className="h-8 w-auto invert brightness-0 invert" />
             </Link>
             <p className="text-[13px] text-white/60 max-w-sm">
-              Estudio de producción cinematográfica y publicitaria de alta fidelidad óptica, postproducción y etalonaje tonal.
+              Consultora y productora de contenidos audiovisuales, estrategias de marketing digital, community management y cobertura de eventos en tiempo real.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-lg">
-            {['Vimeo', 'Instagram', 'Behance', 'YouTube'].map(name => (
+            {['Instagram', 'LinkedIn', 'TikTok', 'YouTube'].map(name => (
               <a
                 key={name}
                 href="#"
