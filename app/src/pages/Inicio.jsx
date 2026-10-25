@@ -6,50 +6,20 @@ export default function Inicio() {
 
   const team = [
     {
-      name: 'Mateo S. Roncal',
-      role: 'Director General & Creativo',
-      badge: 'DIRECCIÓN',
-      bio: 'Lidera la visión conceptual y artística de Amarte. Especialista en narrativa cinematográfica y dirección de actores con más de 12 años de trayectoria en cine y publicidad.',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      name: 'David Shoemaker',
+      role: 'Director Ejecutivo (CEO)',
+      badge: 'CO FUNDADOR',
+      subtitle: 'Co Fundador y Productor Audiovisual',
+      bio: 'Lidero la ejecución de las estrategias para las redes sociales y producción audiovisual de los contenidos para los clientes y sus marcas.',
+      image: '/team/david.png',
     },
     {
-      name: 'Clara V. Meyer',
-      role: 'Directora de Fotografía & Arte',
-      badge: 'FOTOGRAFÍA',
-      bio: 'Responsable de la factura estética y visual. Experta en iluminación de alto contraste, óptica especializada y diseño de atmósferas envolventes para sets y locaciones.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      name: 'Dante Almirón',
-      role: 'Director de Postproducción & Color',
-      badge: 'POSTPRODUCCIÓN',
-      bio: 'Maestro de la edición rítmica, etalonaje cinematográfico y diseño sonoro. Convierte el material en bruto en piezas dinámicas listas para cautivar audiencias digitales.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-    },
-    {
-      name: 'Elena Ruiz',
-      role: 'Directora de Estrategia & Marketing',
-      badge: 'ESTRATEGIA',
-      bio: 'Especialista en crecimiento digital y community management. Conecta la potencia visual de las producciones con planes de marketing de conversión en redes sociales.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-    },
-  ];
-
-  const pilares = [
-    {
-      icon: 'movie_filter',
-      title: 'Factura Cinematográfica',
-      desc: 'Cuidamos cada encuadre, la luz, el etalonaje de color y el sonido para que tu marca comunique calidad superior en cualquier pantalla.',
-    },
-    {
-      icon: 'trending_up',
-      title: 'Estrategia Orientada a Resultados',
-      desc: 'No creamos contenido al azar. Cada video, foto o reel responde a un objetivo de posicionamiento, retención o conversión comercial.',
-    },
-    {
-      icon: 'bolt',
-      title: 'Agilidad & Tiempo Real',
-      desc: 'Producimos en lote para redes sociales y cubrimos eventos in situ con entregas inmediatas para aprovechar las tendencias y el momento.',
+      name: 'Valentina Figueira',
+      role: 'Directora de Operaciones (COO)',
+      badge: 'CO FUNDADORA',
+      subtitle: 'Co Fundadora y Comunicadora Social',
+      bio: 'Responsable de la organización y planificación de los proyectos con los clientes para la producción audiovisual y redes sociales.',
+      image: '/team/valentina.png',
     },
   ];
 
@@ -80,24 +50,15 @@ export default function Inicio() {
 
           {/* Título Hero & Propuesta de Valor */}
           <div className="max-w-6xl space-y-6 md:space-y-8">
-            <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-semibold text-on-surface uppercase tracking-tight leading-[1.05] max-w-5xl">
-              <span className="block">CREAMOS CONTENIDO QUE</span>
-              <span className="block">
-                POTENCIA LA <span className="font-editorial italic font-normal text-primary">IDENTIDAD</span> DE TU MARCA.
-              </span>
+            <h1 className="font-editorial text-3xl sm:text-5xl md:text-6xl font-semibold text-on-surface uppercase tracking-tight leading-[1.05] max-w-5xl">
+              TU HISTORIA <span className="font-editorial italic font-normal text-primary">COMIENZA</span> AQUÍ.
             </h1>
 
             <p className="font-body text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl leading-relaxed">
-              Somos una productora y consultora creativa que une el rigor cinematográfico con el pensamiento estratégico digital. Producimos contenidos audiovisuales, diseñamos campañas de marketing y gestionamos comunidades en redes sociales para marcas que buscan destacar.
+              Productora Amarte es una productora emergente creada para contar las historias de tu marca personal, negocio o emprendimiento.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#sobre-nosotros"
-                className="px-6 py-3 bg-surface hover:bg-surface-high text-on-surface text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 border border-surface-variant/60"
-              >
-                Sobre Nosotros
-              </a>
               <a
                 href="#equipo"
                 className="px-6 py-3 bg-surface hover:bg-surface-high text-on-surface text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 border border-surface-variant/60"
@@ -119,28 +80,16 @@ export default function Inicio() {
       {/* SECCIÓN VÍDEO DE PRESENTACIÓN */}
       <section className="w-full bg-black text-white py-16 md:py-24 border-b border-surface-variant/20 relative overflow-hidden">
         <div className="w-full px-margin-mobile md:px-margin-desktop space-y-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 max-w-6xl">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span>EXPERIENCIA AUDIOVISUAL // INSTITUCIONAL</span>
-              </div>
-              <h2 className="font-editorial text-3xl sm:text-5xl font-semibold uppercase tracking-tight">
-                Video de Presentación
-              </h2>
-            </div>
-            <p className="font-body text-sm text-white/70 max-w-md">
-              Una mirada íntima al ADN creativo, la visión estética y los procesos de producción que definen a Productora Amarte.
-            </p>
-          </div>
-
           {/* Reproductor / Contenedor Cinematográfico */}
-          <div className="relative w-full aspect-[16/9] md:aspect-[2.39/1] rounded-2xl overflow-hidden bg-surface-dim border border-white/10 shadow-2xl group flex items-center justify-center">
+          <div
+            onClick={() => setVideoModalOpen(true)}
+            className="relative w-full max-w-5xl mx-auto aspect-[16/9] rounded-2xl overflow-hidden bg-surface-dim border border-white/10 shadow-2xl group flex items-center justify-center cursor-pointer"
+          >
             {/* Background Preview */}
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{
-                backgroundImage: 'url(/portfolio/thumbnails/VAHWziTdwkY.jpg)',
+                backgroundImage: 'url(/portfolio/thumbnails/presentacion.jpg)',
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/60" />
@@ -180,78 +129,6 @@ export default function Inicio() {
               >
                 <span className="material-symbols-outlined text-4xl md:text-5xl ml-1">play_arrow</span>
               </div>
-              <div className="space-y-1">
-                <h3 className="font-editorial text-xl sm:text-2xl font-bold uppercase tracking-wider text-white">
-                  Ver Video de Presentación
-                </h3>
-                <p className="text-xs text-white/70 font-mono">
-                  Haz clic para reproducir el trailer institucional
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECCIÓN SOBRE NOSOTROS */}
-      <section id="sobre-nosotros" className="w-full bg-surface py-16 md:py-24 border-b border-surface-variant/20 scroll-mt-20">
-        <div className="w-full px-margin-mobile md:px-margin-desktop space-y-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-primary font-bold">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span>SOBRE NOSOTROS // NUESTRA ESENCIA</span>
-              </div>
-
-              <h2 className="font-editorial text-3xl sm:text-5xl font-semibold text-on-surface uppercase tracking-tight leading-tight">
-                Donde el arte cinematográfico se encuentra con la <span className="italic font-normal text-primary">estrategia digital</span>.
-              </h2>
-
-              <p className="font-body text-base sm:text-lg text-on-surface-variant leading-relaxed">
-                En <strong>Productora Amarte</strong> concebimos cada proyecto como una oportunidad para transformar la presencia de una marca. No creemos en el contenido genérico ni en las fórmulas repetitivas; creemos en el poder de la narrativa visual auténtica para conectar personas y marcas de forma memorable.
-              </p>
-
-              <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
-                Como productora y consultora creativa, brindamos un servicio integral de punta a punta: desde la formulación del concepto y la grilla estratégica, pasando por jornadas de rodaje con equipamiento de primer nivel, hasta la edición dinámica, el community management y la medición de resultados.
-              </p>
-
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/servicios"
-                  className="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 shadow-md"
-                >
-                  Explorar Servicios & Portafolio
-                </Link>
-                <Link
-                  to="/contacto"
-                  className="px-6 py-3 bg-surface hover:bg-surface-high text-on-surface text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-200 border border-surface-variant/60"
-                >
-                  Platicar con Nosotros
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Pillars Cards */}
-            <div className="space-y-4">
-              {pilares.map((p, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 sm:p-8 bg-surface-mid/80 rounded-2xl border border-surface-variant/40 hover:border-primary/40 hover:bg-surface-mid transition-all duration-300 space-y-3"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                      <span className="material-symbols-outlined text-2xl">{p.icon}</span>
-                    </div>
-                    <h3 className="font-editorial text-xl sm:text-2xl font-semibold text-on-surface">
-                      {p.title}
-                    </h3>
-                  </div>
-                  <p className="font-body text-sm text-on-surface-variant leading-relaxed pl-16">
-                    {p.desc}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -275,22 +152,21 @@ export default function Inicio() {
           </div>
 
           {/* Grid de Miembros del Equipo */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-4xl">
             {team.map((member, idx) => (
               <div
                 key={idx}
                 className="group bg-surface rounded-2xl overflow-hidden border border-surface-variant/40 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  {/* Foto de Perfil */}
-                  <div className="aspect-[4/5] relative overflow-hidden bg-surface-dim">
+                  {/* Foto de Perfil (fondo rojo de marca) */}
+                  <div className="aspect-[4/5] relative overflow-hidden bg-primary">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
-                    <span className="absolute top-3 left-3 text-[10px] font-mono font-bold bg-black/60 backdrop-blur-md text-primary px-2.5 py-1 rounded">
+                    <span className="absolute top-3 left-3 text-[10px] font-mono font-bold bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded">
                       {member.badge}
                     </span>
                   </div>
@@ -302,6 +178,9 @@ export default function Inicio() {
                     </h3>
                     <p className="text-xs font-mono font-bold uppercase tracking-wider text-primary">
                       {member.role}
+                    </p>
+                    <p className="font-body text-xs font-semibold text-on-surface">
+                      {member.subtitle}
                     </p>
                     <p className="font-body text-xs text-on-surface-variant leading-relaxed pt-1">
                       {member.bio}
@@ -398,7 +277,8 @@ export default function Inicio() {
 
             <div className="w-full aspect-[16/9] overflow-hidden rounded-xl bg-black shadow-2xl flex items-center justify-center">
               <video
-                src="/portfolio/videos/VAHSqLtm5C8.mp4"
+                src="/portfolio/videos/presentacion.mp4"
+                poster="/portfolio/thumbnails/presentacion.jpg"
                 controls
                 autoPlay
                 playsInline

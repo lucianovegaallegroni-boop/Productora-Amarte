@@ -3,8 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
   { to: '/', label: 'Inicio' },
-  { to: '/servicios', label: 'Servicios & Portafolio' },
   { to: '/mision-y-vision', label: 'Sobre Nosotros' },
+  { to: '/servicios', label: 'Servicios & Portafolio' },
   { to: '/contacto', label: 'Contacto' },
 ]
 
@@ -17,7 +17,7 @@ export default function Header() {
       <div className="h-20 w-full px-margin-mobile md:px-margin-desktop flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-sm">
-          <img src="/6.png" alt="Productora Amarte" className="h-10 w-auto" />
+          <img src="/6.png" alt="Productora Amarte" className="h-14 w-auto" />
         </Link>
 
         {/* Desktop Nav */}

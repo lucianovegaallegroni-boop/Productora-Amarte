@@ -128,14 +128,11 @@ export default function Servicios() {
           {/* Título Hero & Descripción */}
           <div className="max-w-6xl space-y-6 md:space-y-8">
             <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-semibold text-on-surface uppercase tracking-tight leading-[1.05] max-w-5xl">
-              <span className="block">SERVICIOS DE PRODUCCIÓN &</span>
-              <span className="block">
-                PORTAFOLIO <span className="font-editorial italic font-normal text-primary">CINEMATOGRÁFICO</span>.
-              </span>
+              NUESTROS SERVICIOS Y PORTAFOLIO <span className="font-editorial italic font-normal text-primary">AUDIOVISUAL</span>.
             </h1>
 
             <p className="font-body text-base sm:text-lg md:text-xl text-on-surface-variant max-w-3xl leading-relaxed">
-              Descubre nuestras cuatro líneas de servicio integrales junto a la muestra completa de producciones audiovisuales: Reels promocionales, entrevistas, productos, cobertura de eventos en tiempo real y sesiones fotográficas.
+              Conoce nuestra variedad de servicios y nuestro portafolio audiovisual que respalda nuestro trabajo.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -193,9 +190,6 @@ export default function Servicios() {
                         <span className="material-symbols-outlined text-2xl">{s.icon}</span>
                       </div>
                       <div>
-                        <span className="text-xs font-mono font-bold tracking-widest text-primary block">
-                          FASE [{s.fase}]
-                        </span>
                         <span className="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
                           {s.highlight}
                         </span>
@@ -213,9 +207,6 @@ export default function Servicios() {
                     </h3>
                     <p className="font-body text-base font-semibold text-primary leading-snug">
                       {s.shortDesc}
-                    </p>
-                    <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                      {s.fullDesc}
                     </p>
                   </div>
 
