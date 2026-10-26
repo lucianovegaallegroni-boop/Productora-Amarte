@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { serviciosData } from '../data/servicesData';
 
 export default function Contacto() {
   const [formSuccess, setFormSuccess] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    if (!selectedService) {
+      setDropdownOpen(true);
+      return;
+    }
     setFormSuccess(true);
     setTimeout(() => {
       setFormSuccess(false);
+      setSelectedService(null);
       e.target.reset();
     }, 3000);
   };
@@ -56,8 +75,8 @@ export default function Contacto() {
           <div className="w-full px-margin-mobile md:px-margin-desktop">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-2xl">
               {/* Formulario (2 cols) */}
-              <div className="lg:col-span-2 bg-surface-mid rounded-xl p-lg md:p-xl relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+              <div className="lg:col-span-2 bg-surface-mid rounded-xl p-lg md:p-xl relative">
+                <div className="absolute top-0 left-0 w-full h-1 bg-primary rounded-t-xl"></div>
                 <div className="flex items-center justify-between mb-xl">
                   <div className="flex items-center gap-xs font-body text-xs text-primary uppercase tracking-widest font-bold">
                     <span className="material-symbols-outlined text-[16px]">edit_document</span>
@@ -85,25 +104,98 @@ export default function Contacto() {
                     </div>
                     <div className="space-y-2xs">
                       <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="telefono">Teléfono / WhatsApp</label>
-                      <input className={inputClassName} id="telefono" name="telefono" placeholder="+52 55 1234 5678" type="tel" />
+                      <input className={inputClassName} id="telefono" name="telefono" placeholder="+507 6774-2518" type="tel" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
-                    <div className="space-y-2xs">
+                    <div className="space-y-2xs relative" ref={dropdownRef}>
                       <label className="font-body text-sm font-bold text-on-surface-variant uppercase tracking-wider" htmlFor="tipo">Servicio de interés</label>
-                      <select className={`${inputClassName} appearance-none cursor-pointer`} id="tipo" name="tipo" required>
-                        <option value="">Selecciona un servicio</option>
-                        <option value="paquete-mensual">Creación de Contenido (Paquete Mensual)</option>
-                        <option value="por-proyecto">Creación de Contenido (Por Proyecto)</option>
-                        <option value="estrategia-marketing">Diseño de Estrategias de Marketing</option>
-                        <option value="community-management">Community Management (Instagram, LinkedIn, TikTok)</option>
-                        <option value="cobertura-eventos">Cobertura de Eventos en Tiempo Real</option>
-                        <option value="sesion-fotos">Sesión de Fotos (Editorial, Producto o Marca)</option>
-                        <option value="reels-comerciales">Producción de Reels Comerciales / Entrevistas</option>
-                        <option value="paquete-integral">Paquete Integral 360° (Producción + Marketing)</option>
-                        <option value="otro">Otro requerimiento</option>
-                      </select>
+                      <input type="hidden" name="tipo" value={selectedService?.id || ''} required />
+                      <button
+                        id="tipo"
+                        type="button"
+                        onClick={() => setDropdownOpen((prev) => !prev)}
+                        aria-haspopup="listbox"
+                        aria-expanded={dropdownOpen}
+                        className={`w-full px-md py-sm bg-white border rounded-lg text-left flex items-center justify-between gap-2 transition-all duration-200 cursor-pointer ${
+                          dropdownOpen
+                            ? 'border-primary ring-2 ring-primary/15 shadow-sm'
+                            : 'border-outline-variant hover:border-on-surface-variant/60'
+                        }`}
+                      >
+                        {selectedService ? (
+                          <span className="flex items-center gap-2.5 text-on-surface font-medium truncate">
+                            <span className="material-symbols-outlined text-primary text-[18px] shrink-0">
+                              {selectedService.icon}
+                            </span>
+                            <span className="truncate">{selectedService.title}</span>
+                          </span>
+                        ) : (
+                          <span className="text-on-surface-variant/50">Selecciona un servicio</span>
+                        )}
+                        <span
+                          className={`material-symbols-outlined text-primary text-[22px] shrink-0 transition-transform duration-200 ${
+                            dropdownOpen ? 'rotate-180' : ''
+                          }`}
+                        >
+                          expand_more
+                        </span>
+                      </button>
+
+                      {dropdownOpen && (
+                        <ul
+                          role="listbox"
+                          className="absolute z-30 left-0 right-0 mt-1.5 bg-white border border-surface-variant/60 rounded-xl shadow-xl overflow-hidden py-1.5 divide-y divide-surface-variant/20"
+                        >
+                          {serviciosData.map((servicio) => {
+                            const isSelected = selectedService?.id === servicio.id;
+                            return (
+                              <li
+                                key={servicio.id}
+                                role="option"
+                                aria-selected={isSelected}
+                                onClick={() => {
+                                  setSelectedService(servicio);
+                                  setDropdownOpen(false);
+                                }}
+                                className={`px-4 py-3 flex items-center justify-between gap-3 cursor-pointer transition-colors duration-150 ${
+                                  isSelected
+                                    ? 'bg-primary/10 text-primary font-semibold'
+                                    : 'text-on-surface hover:bg-surface-mid'
+                                }`}
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <div
+                                    className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
+                                      isSelected
+                                        ? 'bg-primary text-white'
+                                        : 'bg-primary/10 text-primary'
+                                    }`}
+                                  >
+                                    <span className="material-symbols-outlined text-[18px]">
+                                      {servicio.icon}
+                                    </span>
+                                  </div>
+                                  <div className="min-w-0">
+                                    <p className="font-body text-sm font-semibold leading-tight truncate">
+                                      {servicio.title}
+                                    </p>
+                                    <p className="font-mono text-[10px] uppercase tracking-wider text-on-surface-variant truncate mt-0.5">
+                                      {servicio.highlight}
+                                    </p>
+                                  </div>
+                                </div>
+                                {isSelected && (
+                                  <span className="material-symbols-outlined text-primary text-[18px] shrink-0">
+                                    check_circle
+                                  </span>
+                                )}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
                     </div>
 
                     <div className="space-y-2xs">
@@ -159,7 +251,7 @@ export default function Contacto() {
                   </div>
                   <div>
                     <p className="font-body text-xs font-bold text-on-surface uppercase tracking-wider mb-2xs">WhatsApp / Teléfono</p>
-                    <p className="font-body text-sm text-on-surface-variant">+52 55 1234 5678</p>
+                    <p className="font-body text-sm text-on-surface-variant">+507 6774-2518</p>
                   </div>
                 </div>
 
